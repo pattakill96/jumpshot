@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+- phpMyAdmin XML Dump
+- version 4.7.0
+- https://www.phpmyadmin.net
+-
+- Host: 127.0.0.1
+- Creato il: Set 03, 2018 alle 16:36
+- Versione del server: 10.1.24-MariaDB
+- Versione PHP: 7.0.20
+-->
+
+<pma_xml_export version="1.0" xmlns:pma="https://www.phpmyadmin.net/some_doc_url/">
+    <!--
+    - Structure schemas
+    -->
+    <pma:structure_schemas>
+        <pma:database name="jumpshot" collation="latin1_swedish_ci" charset="latin1">
+            <pma:table name="amministratori">
+                CREATE TABLE `amministratori` (
+                  `id` int(11) NOT NULL,
+                  `username` int(11) NOT NULL,
+                  `password` int(11) NOT NULL,
+                  PRIMARY KEY (`id`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+            </pma:table>
+            <pma:table name="carrello">
+                CREATE TABLE `carrello` (
+                  `id` int(11) NOT NULL AUTO_INCREMENT,
+                  `utente` int(11) NOT NULL,
+                  `prodotto` int(11) NOT NULL,
+                  `taglia` varchar(11) NOT NULL,
+                  `prezzo` int(11) NOT NULL,
+                  `ordinato` int(11) NOT NULL,
+                  PRIMARY KEY (`id`),
+                  KEY `utente` (`utente`),
+                  KEY `prodotto` (`prodotto`),
+                  CONSTRAINT `carrello_ibfk_1` FOREIGN KEY (`utente`) REFERENCES `utenti` (`id`),
+                  CONSTRAINT `carrello_ibfk_2` FOREIGN KEY (`prodotto`) REFERENCES `prodotti` (`id`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+            </pma:table>
+            <pma:table name="carrelloext">
+                CREATE TABLE `carrelloext` (
+                  `id` int(11) NOT NULL,
+                  `utente` int(11) NOT NULL,
+                  `prodotto` int(11) NOT NULL,
+                  `taglia` varchar(11) NOT NULL,
+                  `prezzo` int(11) NOT NULL,
+                  `ordinato` int(11) NOT NULL,
+                  PRIMARY KEY (`id`),
+                  KEY `utente` (`utente`),
+                  KEY `prodotto` (`prodotto`),
+                  CONSTRAINT `carrelloext_ibfk_1` FOREIGN KEY (`utente`) REFERENCES `utentiext` (`id`),
+                  CONSTRAINT `carrelloext_ibfk_2` FOREIGN KEY (`prodotto`) REFERENCES `prodotti` (`id`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+            </pma:table>
+            <pma:table name="carrellofornitore">
+                CREATE TABLE `carrellofornitore` (
+                  `id` int(11) NOT NULL,
+                  `fornitore` int(11) NOT NULL,
+                  `prodotto` int(11) NOT NULL,
+                  `taglia` int(11) NOT NULL,
+                  `quantita` int(11) NOT NULL,
+                  `prezzo` int(11) NOT NULL,
+                  `ordinato` int(11) NOT NULL,
+                  KEY `fornitore` (`fornitore`),
+                  KEY `prodotto` (`prodotto`),
+                  CONSTRAINT `carrellofornitore_ibfk_1` FOREIGN KEY (`fornitore`) REFERENCES `fornitore` (`id`),
+                  CONSTRAINT `carrellofornitore_ibfk_2` FOREIGN KEY (`prodotto`) REFERENCES `prodottifornitore` (`id`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+            </pma:table>
+            <pma:table name="fornitore">
+                CREATE TABLE `fornitore` (
+                  `id` int(11) NOT NULL,
+                  `denominazione` varchar(50) NOT NULL,
+                  `email` varchar(30) NOT NULL,
+                  `indirizzo` varchar(100) NOT NULL,
+                  `CAP` int(11) NOT NULL,
+                  PRIMARY KEY (`id`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+            </pma:table>
+            <pma:table name="immagini">
+                CREATE TABLE `immagini` (
+                  `immagine` varchar(100) NOT NULL,
+                  `prodotto` int(11) NOT NULL,
+                  KEY `prodotto` (`prodotto`),
+                  CONSTRAINT `immagini_ibfk_1` FOREIGN KEY (`prodotto`) REFERENCES `prodotti` (`id`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+            </pma:table>
+            <pma:table name="immaginifornitore">
+                CREATE TABLE `immaginifornitore` (
+                  `immagine` varchar(100) NOT NULL,
+                  `prodotto` int(11) NOT NULL,
+                  KEY `prodotto` (`prodotto`),
+                  CONSTRAINT `immaginifornitore_ibfk_1` FOREIGN KEY (`prodotto`) REFERENCES `prodottifornitore` (`id`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+            </pma:table>
+            <pma:table name="ordinefornitore">
+                CREATE TABLE `ordinefornitore` (
+                  `id` int(11) NOT NULL,
+                  `amministratore` int(11) NOT NULL,
+                  `fornitore` int(11) NOT NULL,
+                  `totale` int(11) NOT NULL,
+                  PRIMARY KEY (`id`),
+                  KEY `amministratore` (`amministratore`),
+                  KEY `fornitore` (`fornitore`),
+                  CONSTRAINT `ordinefornitore_ibfk_1` FOREIGN KEY (`fornitore`) REFERENCES `fornitore` (`id`),
+                  CONSTRAINT `ordinefornitore_ibfk_2` FOREIGN KEY (`amministratore`) REFERENCES `amministratori` (`id`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+            </pma:table>
+            <pma:table name="ordinepagatoext">
+                CREATE TABLE `ordinepagatoext` (
+                  `ordine` int(11) NOT NULL,
+                  `spedizione` int(11) NOT NULL,
+                  `pagamento` int(11) NOT NULL,
+                  KEY `ordine` (`ordine`),
+                  CONSTRAINT `ordinepagatoext_ibfk_1` FOREIGN KEY (`ordine`) REFERENCES `ordiniext` (`id`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+            </pma:table>
+            <pma:table name="ordini">
+                CREATE TABLE `ordini` (
+                  `id` int(11) NOT NULL,
+                  `utente` int(11) NOT NULL,
+                  `totale` int(11) NOT NULL,
+                  PRIMARY KEY (`id`),
+                  KEY `utente` (`utente`),
+                  CONSTRAINT `ordini_ibfk_1` FOREIGN KEY (`utente`) REFERENCES `utenti` (`id`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+            </pma:table>
+            <pma:table name="ordiniext">
+                CREATE TABLE `ordiniext` (
+                  `id` int(11) NOT NULL,
+                  `utente` int(11) NOT NULL,
+                  `totale` int(11) NOT NULL,
+                  PRIMARY KEY (`id`),
+                  KEY `utente` (`utente`),
+                  CONSTRAINT `ordiniext_ibfk_1` FOREIGN KEY (`utente`) REFERENCES `utentiext` (`id`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+            </pma:table>
+            <pma:table name="ordinipagati">
+                CREATE TABLE `ordinipagati` (
+                  `ordine` int(11) NOT NULL,
+                  `spedizione` varchar(60) NOT NULL,
+                  `pagamento` varchar(40) NOT NULL,
+                  KEY `ordine` (`ordine`),
+                  CONSTRAINT `ordinipagati_ibfk_1` FOREIGN KEY (`ordine`) REFERENCES `ordini` (`id`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+            </pma:table>
+            <pma:table name="prodotti">
+                CREATE TABLE `prodotti` (
+                  `id` int(11) NOT NULL,
+                  `marca` varchar(15) NOT NULL,
+                  `modello` varchar(20) NOT NULL,
+                  `tipologia` varchar(20) NOT NULL,
+                  `immagine` int(11) NOT NULL,
+                  `prezzo` int(11) NOT NULL,
+                  PRIMARY KEY (`id`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+            </pma:table>
+            <pma:table name="prodottifornitore">
+                CREATE TABLE `prodottifornitore` (
+                  `id` int(11) NOT NULL,
+                  `marca` varchar(30) NOT NULL,
+                  `modello` varchar(30) NOT NULL,
+                  `prezzo` int(11) NOT NULL,
+                  PRIMARY KEY (`id`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+            </pma:table>
+            <pma:table name="saldi">
+                CREATE TABLE `saldi` (
+                  `percentuale` int(11) NOT NULL,
+                  `prodotto` int(11) NOT NULL,
+                  KEY `prodotto` (`prodotto`),
+                  CONSTRAINT `saldi_ibfk_1` FOREIGN KEY (`prodotto`) REFERENCES `prodotti` (`id`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+            </pma:table>
+            <pma:table name="taglieprodotti">
+                CREATE TABLE `taglieprodotti` (
+                  `scarpa` int(11) NOT NULL,
+                  `taglia` int(11) NOT NULL,
+                  `quantita` int(11) NOT NULL,
+                  KEY `scarpa` (`scarpa`),
+                  CONSTRAINT `taglieprodotti_ibfk_1` FOREIGN KEY (`scarpa`) REFERENCES `prodotti` (`id`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+            </pma:table>
+            <pma:table name="utenti">
+                CREATE TABLE `utenti` (
+                  `id` int(11) NOT NULL,
+                  `nome` varchar(20) NOT NULL,
+                  `cognome` varchar(20) NOT NULL,
+                  `indirizzo` varchar(100) NOT NULL,
+                  `citta` varchar(20) NOT NULL,
+                  `CAP` int(11) NOT NULL,
+                  `username` varchar(20) NOT NULL,
+                  `password` varchar(20) NOT NULL,
+                  `tagliaScarpe` int(11) NOT NULL,
+                  `tagliaCanotte` varchar(3) NOT NULL,
+                  `tagliaCappelli` int(11) NOT NULL,
+                  PRIMARY KEY (`id`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+            </pma:table>
+            <pma:table name="utentiext">
+                CREATE TABLE `utentiext` (
+                  `id` int(11) NOT NULL AUTO_INCREMENT,
+                  `token` int(11) NOT NULL,
+                  PRIMARY KEY (`id`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+            </pma:table>
+        </pma:database>
+    </pma:structure_schemas>
+
+    <!--
+    - Database: 'jumpshot'
+    -->
+    <database name="jumpshot">
+        <!-- Tabella amministratori -->
+        <!-- Tabella carrello -->
+        <!-- Tabella carrelloext -->
+        <!-- Tabella carrellofornitore -->
+        <!-- Tabella fornitore -->
+        <!-- Tabella immagini -->
+        <!-- Tabella immaginifornitore -->
+        <!-- Tabella ordinefornitore -->
+        <!-- Tabella ordinepagatoext -->
+        <!-- Tabella ordini -->
+        <!-- Tabella ordiniext -->
+        <!-- Tabella ordinipagati -->
+        <!-- Tabella prodotti -->
+        <!-- Tabella prodottifornitore -->
+        <!-- Tabella saldi -->
+        <!-- Tabella taglieprodotti -->
+        <!-- Tabella utenti -->
+        <!-- Tabella utentiext -->
+    </database>
+</pma_xml_export>
