@@ -1,0 +1,188 @@
+#products-dropdown {
+  display: flex;
+  flex-direction: row;
+  max-width: 0;
+  overflow: hidden;
+  transition: all 2s;
+}
+
+#products-dropdown>li {
+  font-size: .8em;
+  margin-top: .15em;
+}
+
+#products-nav-link:hover+#products-dropdown {
+  max-width: 80em;
+  padding-left: 3em !important;
+}
+
+#products-dropdown:hover {
+  max-width: 80em;
+  padding-left: 3em !important;
+}
+
+#product-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  font-size: 14px;
+}
+
+.addToCart {
+  cursor: pointer;
+}
+
+input.prod-quant-input {
+  padding: 1em .1em 1em .1em;
+  height: .8em;
+  text-align: right;
+  width: 2em;
+  display: inline-block;
+}
+
+.price {
+  position: absolute;
+  bottom: 1em;
+  font-size: 1.1em;
+}
+
+.mini-post.product>header {
+  height: 10em;
+}
+
+.mini-post.review>header {
+  height: 12em;
+}
+
+.button.small.red {
+  background-color: #d46868;
+  color: #fff !important;
+}
+.button.red {
+  background-color: #d46868;
+  color: #fff !important;
+}
+
+.button.blue {
+  background-color: #003087;
+  color: #fff !important;
+}
+
+.address {
+  font-size: .9em;
+}
+
+.address>p {
+  margin: .5em;
+}
+
+#intro .logo {
+  width: 6em;
+}
+
+#intro .logo img {
+  margin-left: 0em;
+  width: 100%;
+}
+
+#intro .logo:before {
+  content: none;
+}
+
+.stats {
+  font-size: 1.5em;
+}
+
+.addLike {
+  cursor: pointer;
+}
+.liked {
+  color: #2ebaae !important;
+}
+.liked::before {
+  color: #2ebaae !important;
+}
+
+/* PELL */
+
+.pell-content {
+  height: 400px;
+}
+
+.pell-actionbar > button {
+  all: initial;
+  margin: 1em;
+  * {
+      all: unset;
+  }
+}
+.pell-actionbar > button:hover {
+  cursor: pointer;
+}
+
+/* PAGINATION */
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 2em;
+}
+.pagination > a {
+  padding: .2em .6em;
+  background-color: white;
+  transition: background-color .3s;
+  border: 1px solid #eee;
+  margin: 0 .1em;
+  font-size: 1em;
+}
+.pagination a.active {
+  background-color: #2ebaae;
+  color: white !important;
+  border: 1px solid #2ebaae;
+}
+.pagination a.active:hover { color: white !important; }
+.pagination a:hover:not(.active) { background-color: rgb(253, 253, 253); }
+.pagination a.dots { border: none; background-color: none !important; }
+.pagination a.dots:hover { color: inherit !important; background-color: transparent !important; }
+
+/* MODAL */
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* The Close Button */
+span.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 2em;
+  font-weight: bold;
+}
+
+span.close:hover,
+span.close:focus {
+  color: #2ebaae;
+  text-decoration: none;
+  cursor: pointer;
+}

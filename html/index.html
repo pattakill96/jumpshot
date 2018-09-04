@@ -1,0 +1,27 @@
+<div id="main">
+		<article class="post">
+			<header>
+				<div class="title">
+					<h2>I più venduti</h2>
+				</div>
+			</header>
+	
+			
+			<div id="product-container">
+				<[foreach]>
+					<article class="mini-post product" style="width:250px;">
+						<header>
+							<h3><a href="product-detail.php?id=<[id]>"><[marca]></a></h3>
+							<h2> <[modello]></h2>
+							<img style="width:200px; align-self: flex-start; margin:0 1em 0em 0em;" src="<[immagine]>" alt="" />
+							<span class="price"><strong>Prezzo:</strong> &euro;<[prezzo]>
+							<a class="author addToCart" product-id="<[id]>" product-name="<[marca]>" product-price="<[prezzo]>"><span class="fa fa-cart-plus fa-3x"></span></a>
+						</header>
+						<a href="product-detail.php?id=<[id_product]>" class="image"><img src="<[percorso]>" alt="" style="height:354px; object-fit:cover;"/></a>
+					</article>
+				<[/foreach]>
+			</div>
+	
+		</article>
+	
+</div>

@@ -89,13 +89,9 @@
 
     }
 
-    switch ($_SERVER['SERVER_NAME']) {
-        case "localhost":
-            $db = new DBMS("localhost", "root", "", "gamerage");
-            break;
-        case "www.gamerage.altervista.org":
-            $db = DB("localhost", "gamerage", "", "my_gamerage");
-    }
+    
+    $db = new DBMS("localhost", "root", "", "jumpshot");
+            
     $db->connect();
 
     if (!$db->isConnected()) {

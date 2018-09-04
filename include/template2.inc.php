@@ -41,7 +41,6 @@ Class Template {
 	$cache,
 	$tags,
     $escaped_tags,
-    
     $javascript;
 
 

@@ -2551,7 +2551,7 @@ input, select, textarea {
 		-webkit-flex-wrap: wrap;
 		-ms-flex-wrap: wrap;
 		flex-wrap: wrap;
-		postiion: relative;
+		position: relative;
 		margin: -2.5em 0 0 -2.5em;
 	}
 
@@ -2831,11 +2831,12 @@ input, select, textarea {
 			#header .logo .symbol {
 				margin-right: 0.65em;
 			}
-
+			/*cazzarola*/
+			
 				#header .logo .symbol img {
 					display: block;
-					width: 2em;
-					height: 2em;
+					width: 4em;
+					height: 4em;
 				}
 
 		#header nav {
