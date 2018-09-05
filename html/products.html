@@ -1,0 +1,29 @@
+<!-- Main -->
+<div id="main">
+  <article class="post">
+    <header>
+      <div class="title">
+        <h2>Prodotti</h2>
+      </div>
+    </header>
+
+    <!-- Mini Post -->
+    <div id="product-container">
+      <[errore]>
+      <[foreach]>
+        <article class="mini-post product"  style="width:250px;">
+          <header>
+            <h3><a href="product-detail.php?id=<[id_prodotto]>"><[titolo]></a></h3>
+            <time class="published">Data di pubblicazione: <[uscita]></time>
+            <span class="price"><strong>Prezzo:</strong> &euro;<[prezzo]> - <strong>Disp:</strong> <[disponibilita]> pz.</span>
+            <a class="author addToCart" product-id="<[id_prodotto]>" product-name="<[titolo]>" product-price="<[prezzo]>">
+              <span class="fa fa-cart-plus fa-3x"></span>
+            </a>
+          </header>
+          <a href="product-detail.php?id=<[id_prodotto]>" class="image"><img src="<[percorso]>" alt="" style="height:354px; object-fit:cover;"/></a>
+        </article>
+      <[/foreach]>
+    </div>
+    <[pagination]>
+  </article>
+</div>

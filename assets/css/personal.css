@@ -51,6 +51,13 @@ input.prod-quant-input {
   height: 10em;
 }
 
+ #mark{
+  float: left;
+  background-color:#585858;
+  color: khaki;
+}
+
+
 .mini-post.review>header {
   height: 12em;
 }
@@ -110,13 +117,13 @@ input.prod-quant-input {
   height: 400px;
 }
 
-.pell-actionbar > button {
+/* .pell-actionbar > button {
   all: initial;
   margin: 1em;
   * {
       all: unset;
   }
-}
+} */
 .pell-actionbar > button:hover {
   cursor: pointer;
 }
@@ -185,4 +192,8 @@ span.close:focus {
   color: #2ebaae;
   text-decoration: none;
   cursor: pointer;
+}
+
+.login{
+  float: left;
 }

@@ -7,7 +7,7 @@
   $main = new Template("html/frame-public.html");
   $body = new Template("html/index.html");
 
-  $query_prod = "SELECT prodotti.*, immagini.immagine
+  $query_prod = "SELECT DISTINCT prodotti.*, immagini.immagine
                  FROM prodotti, immagini
                  WHERE prodotti.id = immagini.prodotto";
   
@@ -43,6 +43,5 @@
   } else {
     inject(FALSE, $main , $body ,$db);
   }
-
   $main->close();
   ?>

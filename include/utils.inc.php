@@ -2,44 +2,42 @@
 
 function inject($authenticated, $main, $body, $db, $admin = 0) {
   if($authenticated) {
-    $logoutButton = new Template("themes/default/dtml/button-logout.html");
-    $userButton = new Template("themes/default/dtml/button-user.html");
-    $cartButton = new Template("themes/default/dtml/button-cart.html");
-    $adminButton = new Template("themes/default/dtml/button-admin.html");
-    $adminButtonSidebar = new Template("themes/default/dtml/button-admin-sidebar.html");
+    $logoutButton = new Template("html/button-logout.html");
+    $userButton = new Template("html/button-user.html");
+    $cartButton = new Template("html/button-cart.html");
+    $adminButton = new Template("html/button-admin.html");
+    $adminButtonSidebar = new Template("html/button-admin-sidebar.html");
 
-    $button_cart_query = "SELECT quantita, prezzo
-                          FROM carrello, prodotto
-                          WHERE carrello.username = '{$_SESSION['auth']['username']}'
-                          AND carrello.id_prodotto = prodotto.id_prodotto;";
+    // $button_cart_query = "SELECT quantita, prezzo
+    //                       FROM carrello, prodotto
+    //                       WHERE carrello.username = '{$_SESSION['auth']['username']}'
+    //                       AND carrello.id_prodotto = prodotto.id_prodotto;";
 
-    $db->query($button_cart_query);
-    $result = $db->getResult();
+    // $db->query($button_cart_query);
+    // $result = $db->getResult();
 
-    $button_cart['button_cart_items'] = 0;
-    $button_cart['button_cart_price'] = 0;
-    if($db->status != "ERROR" && $result) {
-      foreach($result as $row) {
-        $button_cart['button_cart_items'] += $row['quantita'];
-        $row['prezzo'] = $row['quantita'] * $row['prezzo'];
-        $button_cart['button_cart_price'] = number_format($button_cart['button_cart_price'] + $row['prezzo'], 2, '.', '');
-      }
-    }
+    // $button_cart['button_cart_items'] = 0;
+    // $button_cart['button_cart_price'] = 0;
+    // if($db->status != "ERROR" && $result) {
+    //   foreach($result as $row) {
+    //     $button_cart['button_cart_items'] += $row['quantita'];
+    //     $row['prezzo'] = $row['quantita'] * $row['prezzo'];
+    //     $button_cart['button_cart_price'] = number_format($button_cart['button_cart_price'] + $row['prezzo'], 2, '.', '');
+    //   }
+    // }
 
-  $cartButton->setContent($button_cart);
-  $userButton->setContent("username", $_SESSION['auth']['username']);
+  //$cartButton->setContent($button_cart);
+  //$userButton->setContent("username", $_SESSION['auth']['username']);
   $main->setContent("logout", $logoutButton->get());
-  $main->setContent("user-button", $userButton->get());
-  $main->setContent("cart-button", $cartButton->get());
+  //$main->setContent("user-button", $userButton->get());
+  //$main->setContent("cart-button", $cartButton->get());
   if($admin) {
     $main->setContent("admin-button", $adminButton->get());
     $main->setContent("admin-button-sidebar", $adminButtonSidebar->get());
   }
 } else {
   $loginForm = new Template("html/form-login.html");
-  $signupButton = new Template("html/button-signup.html");
 
-$main->setContent("signup-button", $signupButton->get());
 $main->setContent("login", $loginForm->get());
 }
 
@@ -95,7 +93,7 @@ $main->setContent("body", $body->get());
    $lastPage = ceil(count($result)/6);
    $result = array_slice($result, $currPage*6-6, 6);
    if($genere !== "") $genere = "genere=$genere&";
-   $pagination = new Template("themes/default/dtml/pagination.html");
+   $pagination = new Template("html/pagination.html");
    $pagination->setContent("prev", ($currPage>1) ? "products.php?".$genere."page=".($currPage-1) : "products.php?".$genere."page=1");
    $pagination->setContent("next", ($currPage<$lastPage) ? "products.php?".$genere."page=".($currPage+1) : "products.php?".$genere."page=".$lastPage);
    foreach($result as $row) {
@@ -108,36 +106,36 @@ $main->setContent("body", $body->get());
 
    if($lastPage < 8) {
      for($i = 1; $i <= $lastPage; $i++) {
-       $single = new Template("themes/default/dtml/pagination-single.html");
+       $single = new Template("html/pagination-single.html");
        $single->setContent("href", "products.php?".$genere."page={$i}");
        $single->setContent("class", ($currPage==$i) ? "active" : "");
        $single->setContent("val", $i);
        $pagination->setContent("single", $single->get());
      }
    } else {
-     $single = new Template("themes/default/dtml/pagination-single.html");
+     $single = new Template("html/pagination-single.html");
      $single->setContent("href", "products.php?".$genere."page=1");
      $single->setContent("class", ($currPage==1) ? "active" : "");
      $single->setContent("val", "1");
      $pagination->setContent("single", $single->get());
      if($currPage <= 2 || $currPage > $lastPage-2) {
-       $single = new Template("themes/default/dtml/pagination-single.html");
+       $single = new Template("html/pagination-single.html");
        $single->setContent("href", "products.php?".$genere."page=2");
        $single->setContent("class", ($currPage==2) ? "active" : "");
        $single->setContent("val", "2");
        $pagination->setContent("single", $single->get());
-       $single = new Template("themes/default/dtml/pagination-single.html");
+       $single = new Template("html/pagination-single.html");
        $single->setContent("href", "products.php?".$genere."page=3");
        $single->setContent("class", ($currPage==3) ? "active" : "");
        $single->setContent("val", "3");
        $pagination->setContent("single", $single->get());
        $pagination->setContent("single", "<a class=\"dots\">...</a>");
-       $single = new Template("themes/default/dtml/pagination-single.html");
+       $single = new Template("html/pagination-single.html");
        $single->setContent("href", "products.php?".$genere."page=".($lastPage-2));
        $single->setContent("class", ($currPage==$lastPage-2) ? "active" : "");
        $single->setContent("val", $lastPage-2);
        $pagination->setContent("single", $single->get());
-       $single = new Template("themes/default/dtml/pagination-single.html");
+       $single = new Template("html/pagination-single.html");
        $single->setContent("href", "products.php?".$genere."page=".($lastPage-1));
        $single->setContent("class", ($currPage==$lastPage-1) ? "active" : "");
        $single->setContent("val", $lastPage-1);
@@ -145,7 +143,7 @@ $main->setContent("body", $body->get());
      } else {
        $pagination->setContent("single", "<a class=\"dots\">...</a>");
        for($i = -1; $i <= 1; $i++) {
-         $single = new Template("themes/default/dtml/pagination-single.html");
+         $single = new Template("html/pagination-single.html");
          $single->setContent("href", "products.php?".$genere."page=".($currPage+$i));
          $single->setContent("class", ($currPage==$currPage+$i) ? "active" : "");
          $single->setContent("val", $currPage+$i);
@@ -153,7 +151,7 @@ $main->setContent("body", $body->get());
        }
        $pagination->setContent("single", "<a class=\"dots\">...</a>");
      }
-     $single = new Template("themes/default/dtml-admin/pagination-single.html");
+     $single = new Template("html-admin/pagination-single.html");
      $single->setContent("href", "products.php?".$genere."page=".$lastPage);
      $single->setContent("class", ($currPage==$lastPage) ? "active" : "");
      $single->setContent("val", $lastPage);
@@ -166,7 +164,7 @@ $main->setContent("body", $body->get());
    $lastPage = ceil(count($result)/6);
    $result = array_slice($result, $currPage*6-6, 6);
    if($id_prodotto !== "") $id_prodotto = "genere=$id_prodotto&";
-   $pagination = new Template("themes/default/dtml/pagination.html");
+   $pagination = new Template("html/pagination.html");
    $pagination->setContent("prev", ($currPage>1) ? "reviews.php?".$id_prodotto."page=".($currPage-1) : "reviews.php?".$id_prodotto."page=1");
    $pagination->setContent("next", ($currPage<$lastPage) ? "reviews.php?".$id_prodotto."page=".($currPage+1) : "reviews.php?".$id_prodotto."page=".$lastPage);
    foreach($result as $row) {
@@ -202,36 +200,36 @@ $main->setContent("body", $body->get());
 
    if($lastPage < 8) {
      for($i = 1; $i <= $lastPage; $i++) {
-       $single = new Template("themes/default/dtml/pagination-single.html");
+       $single = new Template("html/pagination-single.html");
        $single->setContent("href", "reviews.php?".$id_prodotto."page={$i}");
        $single->setContent("class", ($currPage==$i) ? "active" : "");
        $single->setContent("val", $i);
        $pagination->setContent("single", $single->get());
      }
    } else {
-     $single = new Template("themes/default/dtml/pagination-single.html");
+     $single = new Template("html/pagination-single.html");
      $single->setContent("href", "reviews.php?".$id_prodotto."page=1");
      $single->setContent("class", ($currPage==1) ? "active" : "");
      $single->setContent("val", "1");
      $pagination->setContent("single", $single->get());
      if($currPage <= 2 || $currPage > $lastPage-2) {
-       $single = new Template("themes/default/dtml/pagination-single.html");
+       $single = new Template("html/pagination-single.html");
        $single->setContent("href", "reviews.php?".$id_prodotto."page=2");
        $single->setContent("class", ($currPage==2) ? "active" : "");
        $single->setContent("val", "2");
        $pagination->setContent("single", $single->get());
-       $single = new Template("themes/default/dtml/pagination-single.html");
+       $single = new Template("html/pagination-single.html");
        $single->setContent("href", "reviews.php?".$id_prodotto."page=3");
        $single->setContent("class", ($currPage==3) ? "active" : "");
        $single->setContent("val", "3");
        $pagination->setContent("single", $single->get());
        $pagination->setContent("single", "<a class=\"dots\">...</a>");
-       $single = new Template("themes/default/dtml/pagination-single.html");
+       $single = new Template("html/pagination-single.html");
        $single->setContent("href", "reviews.php?".$id_prodotto."page=".($lastPage-2));
        $single->setContent("class", ($currPage==$lastPage-2) ? "active" : "");
        $single->setContent("val", $lastPage-2);
        $pagination->setContent("single", $single->get());
-       $single = new Template("themes/default/dtml/pagination-single.html");
+       $single = new Template("html/pagination-single.html");
        $single->setContent("href", "reviews.php?".$id_prodotto."page=".($lastPage-1));
        $single->setContent("class", ($currPage==$lastPage-1) ? "active" : "");
        $single->setContent("val", $lastPage-1);
@@ -239,7 +237,7 @@ $main->setContent("body", $body->get());
      } else {
        $pagination->setContent("single", "<a class=\"dots\">...</a>");
        for($i = -1; $i <= 1; $i++) {
-         $single = new Template("themes/default/dtml/pagination-single.html");
+         $single = new Template("html/pagination-single.html");
          $single->setContent("href", "reviews.php?".$id_prodotto."page=".($currPage+$i));
          $single->setContent("class", ($currPage==$currPage+$i) ? "active" : "");
          $single->setContent("val", $currPage+$i);
@@ -247,7 +245,7 @@ $main->setContent("body", $body->get());
        }
        $pagination->setContent("single", "<a class=\"dots\">...</a>");
      }
-     $single = new Template("themes/default/dtml-admin/pagination-single.html");
+     $single = new Template("html-admin/pagination-single.html");
      $single->setContent("href", "reviews.php?".$id_prodotto."page=".$lastPage);
      $single->setContent("class", ($currPage==$lastPage) ? "active" : "");
      $single->setContent("val", $lastPage);

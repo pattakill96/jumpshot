@@ -199,8 +199,6 @@ input, select, textarea {
 		font-weight: 900;
 		line-height: 1.5;
 		margin: 0 0 2em 0;
-		text-transform: uppercase;
-		letter-spacing: 0.35em;
 	}
 
 		h2 a, h3 a, h4 a, h5 a, h6 a {
@@ -2808,10 +2806,11 @@ input, select, textarea {
 /* Header */
 
 	#header {
-		padding: 8em 0 0.1em 0 ;
+		padding: 3em 0 0.1em 0 ;
 	}
 
 		#header .logo {
+			text-align: inherit;
 			display: block;
 			border-bottom: 0;
 			color: inherit;
@@ -2831,12 +2830,11 @@ input, select, textarea {
 			#header .logo .symbol {
 				margin-right: 0.65em;
 			}
-			/*cazzarola*/
 			
 				#header .logo .symbol img {
 					display: block;
-					width: 4em;
-					height: 4em;
+					width: 6em;
+					height: 6em;
 				}
 
 		#header nav {

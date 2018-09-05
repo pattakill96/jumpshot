@@ -7,40 +7,43 @@
   <!--[if lte IE 8]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.min"></script><![endif]-->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
   <link rel="stylesheet" href="assets/css/main.css" />
-  <!-- <link rel="stylesheet" href="assets/css/personal.css" /> -->
+   <link rel="stylesheet" href="assets/css/personal.css" />
 
   <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
   <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 </head>
 <body class="is-preload">
-  <div id="wrapper">
+  <div id="wrapper" >
+    <div style="background-color:khaki" style="float: left">
   <header id="header">
-    <div class="inner">
-      <a href="index.html" class="logo">
-        <span class="symbol"><img src="img/logo.png"/></span><span class="title"><h1>Jumpshot</h1></span>
+      <a href="index.php" class="logo">
+        <span class="symbol"><img src="img/logo.png"/></span><span class="title"><h1 style="margin-top:30px">Jumpshot</h1></span>
       </a>
       <nav>
           <ul>
             <li><a href="#menu">Menu</a></li>
           </ul>
-        </nav>
-      </div>
-    </header>
-  
-  
-
+          
+        </nav> 
+        
+        <[logout]>
+      
 <!-- Menu -->
   <nav id="menu">
     <h2>Menu</h2>
     <ul>
-      <li><a href="#">Registrati</a></li>
+      <li><a href="./signup.php">Registrati</a></li>
+      <li><a href="#">Basket</a></li>
+      <li><a href="#">Sneakers</a></li>
+      <li><a href="#"><[login]></a></li>
+      <li><a href="#">Chi siamo</a></li>
     </ul>
   </nav>
- 
+ </header>
 </div>
-<section>
-  <[login]>
-</section>
+<div style="height:30px"></div>
+
+  <[body]>
   <script src="assets/js/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/skel/3.0.1/skel.min.js"></script>
   <script src="assets/js/breakpoints.min.js"></script>
@@ -50,4 +53,44 @@
   
 
 </body>
+<footer id="footer">
+    <div class="inner">
+      <section>
+        <h2>Resta in contatto</h2>
+        <form method="POST" action="news.php">
+          <div class="fields">
+            <div class="field half">
+              <input type="text" name="name" id="name" placeholder="Name" value="" />
+            </div>
+            <div class="field half">
+              <input type="email" name="email" id="email" placeholder="Email" value=""/>
+            </div>
+            <div class="field">
+              <textarea name="message" id="message" placeholder="Message"></textarea>
+            </div>
+          </div>
+          <ul class="actions">
+            <li><input type="submit" value="Invia" class="primary" /></li>
+          </ul>
+        </form>
+      </section>
+      <section>
+        <h2>Follow</h2>
+        <ul class="icons">
+          <li><a href="#" class="icon style2 fa-twitter"><span class="label">Twitter</span></a></li>
+          <li><a href="#" class="icon style2 fa-facebook"><span class="label">Facebook</span></a></li>
+          <li><a href="#" class="icon style2 fa-instagram"><span class="label">Instagram</span></a></li>
+          <li><a href="#" class="icon style2 fa-dribbble"><span class="label">Dribbble</span></a></li>
+          <li><a href="#" class="icon style2 fa-github"><span class="label">GitHub</span></a></li>
+          <li><a href="#" class="icon style2 fa-500px"><span class="label">500px</span></a></li>
+          <li><a href="#" class="icon style2 fa-phone"><span class="label">Phone</span></a></li>
+          <li><a href="#" class="icon style2 fa-envelope-o"><span class="label">Email</span></a></li>
+        </ul>
+      </section>
+      <ul class="copyright">
+        <li>&copy; Jumpshot: Tutti i diritti riservati</li><li>Design: <a href="http://html5up.net">LUCA PATTAVINA</a> & <a href="http://html5up.net">MARCO MACRINI</a></li>
+      </ul>
+    </div>
+  </footer>
+</div>
 </html>

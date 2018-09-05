@@ -4,13 +4,13 @@ require "include/dbms.inc.php";
 require "include/template2.inc.php";
 require "include/utils.inc.php";
 
-$main = new Template("themes/default/dtml/frame-public.html");
-$body = new Template("themes/default/dtml/product-detail.html");
+$main = new Template("html/frame-public.html");
+$body = new Template("html/product-detail.html");
 
 if(isset($_GET['id'])) {
   $product_detail_query = "SELECT prodotti.*, immagini.immagine, taglieprodotti.taglia, taglieprodotti.quantita
                           FROM prodotti, taglieprodotti, immagini
-                          WHERE prodotti.id_prodotto = {$_GET['id']} AND taglieprodotti.id = {$_GET['id']} AND immagini.prodotto = {$_GET['id']} ";
+                          WHERE prodotti.id = {$_GET['id']} AND taglieprodotti.scarpa = {$_GET['id']} AND immagini.prodotto = {$_GET['id']} AND taglieprodotti.quantita > 0 ";
 
   $db->query($product_detail_query);
 
@@ -24,15 +24,8 @@ if(isset($_GET['id'])) {
       $row['immagine'] = $row['immagine'];
       $row['marca'] = utf8_encode($row['marca']);
       $row['modello'] = utf8_encode($row['modello']);
-      $row['tipologia'] = utf8_encode($row['tipologia']);
+      $row['taglia'] = utf8_encode($row['taglia']);
       $row['prezzo'] = utf8_decode($row['prezzo']);
-      if($row['quantita'] <= 0)
-        $row['quantita'] = '<span style="color:red">Esaurito</span>';
-      else if($row['quantita'] <= 25)
-        $row['quantita'] = '<span style="color:#eec81d">Solo '.$row['quantita'].' rimasti!</span>';
-      else
-        $row['quantita'] = '<span style="color:green">Disponibile</span>';
-
       $body->setContent($row);
     }
   }

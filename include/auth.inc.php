@@ -44,38 +44,5 @@
        * username e password corrette, utente loggato
       */
       $_SESSION['auth'] = $result[0];
-
-      /*
-       * di seguito recupero i permessi dell'utente
-       *
-      */
-
-      $db->query($user_permission_query);
-      $result = $db->getResult();
-
-      foreach($result as $row) {
-          $permission[$row['script']] = $row;
-      }
-
-      $_SESSION['auth']['service'] = $permission;
-
-  }
-
-  if (!isset($_SESSION['auth']['service'][basename($_SERVER['SCRIPT_NAME'])])) {
-
-      /* utente non autorizzato */
-
-      Header("Location: error.php?id=1003");
-      exit;
-
-
-  } elseif ($_SESSION['auth']['service'][basename($_SERVER['SCRIPT_NAME'])]['attivo'] != '*') {
-
-      /* script non attivo */
-
-      // Header("Location: error.php?id=1004");
-      echo $_SESSION['auth']['service'][basename($_SERVER['SCRIPT_NAME'])]['attivo'];
-      exit;
-
-  }
+    }
 ?>

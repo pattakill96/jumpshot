@@ -1,0 +1,184 @@
+<!-- Main -->
+<div id="main">
+
+    <!-- Post -->
+    <article class="post">
+      <header>
+        <div class="title">
+          <h2>I tuoi ordini</h2>
+          <p>Qui puoi visualizzare tutti i tuoi ordini in attesa di essere processati.</p>
+        </div>
+      </header>
+      <[foreach]>
+      <div class="table-wrapper">
+        <h3>Data ordine: <[data_ordine]></h3>
+        <table class="alt" style="text-align: right;">
+          <thead>
+            <tr>
+              <th>Titolo prodotto</th>
+              <th>Quantit&agrave;</th>
+              <th>Prezzo unitario</th>
+              <th>Prezzo totale</th>
+            </tr>
+          </thead>
+          <tbody>
+            <[foreach]>
+              <tr>
+                <td style="text-align:left;"><[titolo_ordine]></td>
+                <td><[quantita_ordine]></td>
+                <td>&euro;<[prezzo_ordine]></td>
+                <td>&euro;<[prezzo_totale_ordine]></td>
+              </tr>
+            <[/foreach]>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="3">Totale ordine:</td>
+              <td><strong>&euro;<[totale_ordine]></strong></td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+      <[/foreach]>
+      <footer>
+      </footer>
+    </article>
+
+    <!-- Post -->
+    <article class="post">
+      <header>
+        <div class="title">
+          <h2>I tuoi acquisti</h2>
+          <p>Qui puoi visualizzare tutti gli acquisti che hai effettuato.</p>
+        </div>
+      </header>
+      <[foreach]>
+      <div class="table-wrapper">
+        <h3>Data ordine: <[data_ordine_acquisto]> &mdash; Data acquisto: <[data_acquisto]></h3>
+        <table class="alt" style="text-align: right;">
+          <thead>
+            <tr>
+              <th>Titolo prodotto</th>
+              <th>Quantit&agrave;</th>
+              <th>Prezzo unitario</th>
+              <th>Prezzo totale</th>
+            </tr>
+          </thead>
+          <tbody>
+            <[foreach]>
+              <tr>
+                <td style="text-align:left;"><[titolo_acquisto]></td>
+                <td><[quantita_acquisto]></td>
+                <td>&euro;<[prezzo_acquisto]></td>
+                <td>&euro;<[prezzo_totale_acquisto]></td>
+              </tr>
+            <[/foreach]>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="3">Totale acquisto:</td>
+              <td><strong>&euro;<[totale_acquisto]></strong></td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+      <[/foreach]>
+      <footer>
+      </footer>
+    </article>
+    
+    <!-- Post -->
+    <article class="post">
+      <header>
+        <div class="title">
+          <h2><[username]>: il tuo profilo (Livello <[trofeo]>)</h2>
+          <p>Puoi modificare il tuo profilo semplicemente cliccando nella parte desiderata.</p>
+        </div>
+      </header>
+
+      <form name="profile-form" action="profile.php" method="post">
+        <div class="row uniform" style="width:80%;min-width:20em;margin:auto;">
+          <div class="5u 12u$(xsmall)">
+              <p>Username:</p>
+          </div>
+          <div class="7u$ 12u$(xsmall)">
+              <input type="text" name="username-profilo" id="username-profilo" value="<[username]>" placeholder="Username" style="border:none;" required/>
+          </div>
+          <div class="5u 12u$(xsmall)">
+              <p>Inserisci la tua nuova password:</p>
+          </div>
+          <div class="7u$ 12u$(xsmall)">
+              <input type="password" name="nuovapassword" id="nuovapassword" value="" placeholder="Nuova password" style="border:none;" pattern="^\S{6,}$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Deve contenere almeno 6 caratteri' : ''); if(this.value == '') { form.confermapassword.required= ''; if(form.confermapassword.value!='') this.pattern = form.confermapassword.value; } else if(this.checkValidity()) { form.confermapassword.pattern = this.value; form.confermapassword.required = 'required'; }"/>
+          </div>
+          <div class="5u 12u$(xsmall)">
+              <p>Conferma password:</p>
+          </div>
+          <div class="7u$ 12u$(xsmall)">
+              <input type="password" name="confermapassword" id="confermapassword" value="" placeholder="Conferma password" style="border:none;" pattern="^\S{6,}$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'La password non è uguale a quella inserita sopra' : '');"/>
+          </div>
+          <div class="5u 12u$(xsmall)">
+              <p>Nome:</p>
+          </div>
+          <div class="7u$ 12u$(xsmall)">
+              <input type="text" name="nome" id="nome" value="<[nome]>" placeholder="Nome" style="border:none;" required/>
+          </div>
+          <div class="5u 12u$(xsmall)">
+              <p>Cognome:</p>
+          </div>
+          <div class="7u$ 12u$(xsmall)">
+              <input type="text" name="cognome" id="cognome" value="<[cognome]>" placeholder="Cognome" style="border:none;" required/>
+          </div>
+          <div class="5u 12u$(xsmall)">
+              <p>Email:</p>
+          </div>
+          <div class="7u$ 12u$(xsmall)">
+              <input type="text" name="email" id="email" value="<[email]>" placeholder="Email" style="border:none;" required/>
+          </div>
+          <div class="5u 12u$(xsmall)">
+              <p>Stato:</p>
+          </div>
+          <div class="7u$ 12u$(xsmall)">
+              <input type="text" name="stato" id="stato" value="<[stato]>" placeholder="Stato" style="border:none;" required/>
+          </div>
+          <div class="5u 12u$(xsmall)">
+              <p>Città:</p>
+          </div>
+          <div class="7u$ 12u$(xsmall)">
+              <input type="text" name="citta" id="citta" value="<[citta]>" placeholder="Città" style="border:none;" required/>
+          </div>
+          <div class="5u 12u$(xsmall)">
+              <p>Indirizzo:</p>
+          </div>
+          <div class="7u$ 12u$(xsmall)">
+              <input type="text" name="indirizzo" id="indirizzo" value="<[indirizzo]>" placeholder="Indirizzo" style="border:none;" required/>
+          </div>
+          <div class="5u 12u$(xsmall)">
+              <p>CAP:</p>
+          </div>
+          <div class="7u$ 12u$(xsmall)">
+              <input type="text" name="cap" id="cap" value="<[cap]>" placeholder="CAP" style="border:none;" required/>
+          </div>
+          <div class="5u 12u$(xsmall)">
+              <p>Cellulare:</p>
+          </div>
+          <div class="7u$ 12u$(xsmall)">
+              <input type="text" name="cellulare" id="cellulare" value="<[cellulare]>" placeholder="Cellulare" style="border:none;" required/>
+          </div>
+          <div class="12u$" style="margin-top:2em;text-align:center;">
+            <ul class="actions">
+                  <li><input type="submit" value="Salva" /></li>
+                  <li><input type="reset" value="Reset" onClick="form.nuovapassword.value=''; form.confermapassword.value=''; form.nuovapassword.onchange(); form.confermapassword.onchange();"/></li>
+                  <li style="height: 30px;">
+                      <p>
+                        <[notifica]>
+                      </p>
+                  </li>
+              </ul>
+          </div>
+        </div>
+      </form>
+      <footer>
+      </footer>
+    </article>
+    
+</div>

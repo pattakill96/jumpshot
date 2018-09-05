@@ -1,0 +1,62 @@
+<!-- Main -->
+<div id="main">
+
+  <!-- Post -->
+  <article class="post">
+    <header>
+      <div class="title">
+        <h2>Pagamento</h2>
+        <p>Qui il riassunto del tuo ordine e le opzioni di pagamento.</p>
+      </div>
+    </header>
+    <div class="table-wrapper">
+      <table class="alt" style="text-align: right;">
+        <form action="cart.php" method="post">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Titolo prodotto</th>
+              <th>Quantit&agrave;</th>
+              <th>Prezzo unitario</th>
+              <th>Prezzo totale</th>
+            </tr>
+          </thead>
+          <tbody>
+            <[foreach]>
+              <tr>
+                <td style="text-align:center;"><a href="cart.php?delete=<[id_prodotto]>" style="border: 0;"><i class="fa fa-trash"></i></a></td>
+                <td style="text-align:left;"><[titolo]></td>
+                <td style="text-align:right;"><input class="prod-quant-input" product-id="<[id_prodotto]>" type="text" value="<[quantita]>" maxlength="2" disabled></td>
+                <td>&euro;<[prezzo]></td>
+                <td>&euro;<[prezzo_totale]></td>
+              </tr>
+            <[/foreach]>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="4">Totale ordine:</td>
+              <td><strong>&euro;<[totale_ordine]></strong></td>
+            </tr>
+          </tfoot>
+        </form>
+      </table>
+    </div>
+
+
+    <div class="address">
+      <p><strong>Nome:</strong> <[nome]></p>
+      <p><strong>Cognome:</strong> <[cognome]></p>
+      <p><strong>Stato:</strong> <[stato]></p>
+      <p><strong>Citt&agrave;:</strong> <[citta]></p>
+      <p><strong>Indirizzo:</strong> <[indirizzo]></p>
+      <p><strong>CAP:</strong> <[cap]></p>
+      <p><strong>Cellulare:</strong> <[cellulare]></p>
+    </div>
+
+    <ul class="actions" style="margin-top:2em;">
+      <li><a href="cart.php" class="button small">Torna Indietro</a></li>
+      <li><a href="order.php?completed" class="button blue">Paypal</a></li>
+    </ul>
+  </article>
+
+</div>
