@@ -10,7 +10,7 @@ if ((isset($_POST['name'])) && (isset($_POST['email']))) {
      * richiamato attraverso la action della form
      *
     */
-  $news_query = "INSERT INTO news (nome, email, messaggio) VALUES ('aaaa','bbbbb','ccccccc');";
+  $news_query = "INSERT INTO news (nome, email, messaggio) VALUES ('{$_POST['name']}','{$_POST['email']}','{$_POST['message']}');";
   
 
     $db->query($news_query);
@@ -22,11 +22,6 @@ if ((isset($_POST['name'])) && (isset($_POST['email']))) {
     }
     else{
         Header("Location: index.php");
-        $message = "Messaggio inviato";
-        echo "<script type='text/javascript'>alert('$message');</script>";
-
-    }
-} else {
-    
-}
+        }
+} 
 ?>

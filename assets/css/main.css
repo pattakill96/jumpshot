@@ -151,7 +151,15 @@ input, select, textarea {
 
 		a:hover {
 			border-bottom-color: transparent;
-			color: #f2849e !important;
+			color: #f2849e;
+		}
+
+		div.inner a#blue:hover{
+			color: deepskyblue;
+		}
+
+		div.inner a#red:hover{
+			color: crimson;
 		}
 
 	strong, b {
@@ -2683,11 +2691,11 @@ input, select, textarea {
 					}
 
 			.tiles article.style1 > .image:before {
-				background-color: #f2849e;
+				background-color: crimson;
 			}
 
 			.tiles article.style2 > .image:before {
-				background-color: #7ecaf6;
+				background-color: deepskyblue;
 			}
 
 			.tiles article.style3 > .image:before {
@@ -2923,6 +2931,51 @@ input, select, textarea {
 							opacity: 0;
 						}
 
+						#header nav ul li a[href="#chart"] {
+							-webkit-tap-highlight-color: transparent;
+							width: 4em;
+							text-indent: 4em;
+							font-size: 1em;
+							overflow: hidden;
+							padding: 0;
+							white-space: nowrap;
+						}
+	
+							#header nav ul li a[href="#chart"]:before, #header nav ul li a[href="#chart"]:after {
+								-moz-transition: opacity 0.2s ease;
+								-webkit-transition: opacity 0.2s ease;
+								-ms-transition: opacity 0.2s ease;
+								transition: opacity 0.2s ease;
+								content: '';
+								display: block;
+								position: absolute;
+								top: 0;
+								left: 0;
+								width: 100%;
+								height: 100%;
+								background-position: center;
+								background-repeat: no-repeat;
+								background-size: 2em 2em;
+							}
+	
+							#header nav ul li a[href="#chart"]:before {
+								background-image: url("../../img/shoppingcart_86089.png");
+								opacity: 0;
+							}
+	
+							#header nav ul li a[href="#chart"]:after {
+								background-image: url("../../img/shoppingcart_86089.png");
+								opacity: 1;
+							}
+	
+							#header nav ul li a[href="#chart"]:hover:before {
+								opacity: 1;
+							}
+	
+							#header nav ul li a[href="#chart"]:hover:after {
+								opacity: 0;
+							}
+
 		@media screen and (max-width: 736px) {
 
 			#header {
@@ -2935,6 +2988,10 @@ input, select, textarea {
 				}
 
 					#header nav ul li a[href="#menu"]:before, #header nav ul li a[href="#menu"]:after {
+						background-size: 1.5em 1.5em;
+					}
+
+					#header nav ul li a[href="#chart"]:before, #header nav ul li a[href="#chart"]:after {
 						background-size: 1.5em 1.5em;
 					}
 

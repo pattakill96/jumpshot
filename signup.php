@@ -26,9 +26,11 @@
     $_POST['citta'] = utf8_decode(str_replace("'", "\'", $_POST['citta']));
     $_POST['cap'] = utf8_decode(str_replace("'", "\'", $_POST['cap']));
     $_POST['taglia'] = str_replace("'", "", $_POST['taglia']);
+    $id = rand();
 
-    $signup_query = "INSERT INTO `utenti` (`nome`, `cognome`, `indirizzo`, `citta`, `CAP`, `username`, `password`, `tagliaScarpe`)
-                     VALUES ('{$_POST['nome']}',
+    $signup_query = "INSERT INTO utenti (id, nome, cognome, indirizzo, citta, CAP, username, password, tagliaScarpe)
+                     VALUES ('$id',
+                             '{$_POST['nome']}',
                              '{$_POST['cognome']}',
                              '{$_POST['indirizzo']}',
                              '{$_POST['citta']}',
@@ -42,16 +44,13 @@
     if($db->status == "ERROR") {
       Header('Location: signup.php?error=1005');
     }
-
-      if($db->status == "ERROR") {
-        Header('Location: signup.php?error=1005');
-      } else {
-        
+      else {
+        $_SESSION['user']=$id;
+        $_SESSION['nome'] = $_POST['nome'];
+        $_SESSION['cognome'] = $_POST['cognome'];
+            
         session_start();
-        $permission = TRUE;
-        $_SESSION['auth']['service'] = $permission;
-
-        Header('Location: index.php');
+        Header('Location: index.php?'.$_SESSION['nome']);
       }
     }
 

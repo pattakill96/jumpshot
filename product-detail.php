@@ -21,6 +21,7 @@ if(isset($_GET['id'])) {
     if(!$result) Header('Location: error.php?id=1005');
 
     foreach($result as $row) {
+      $row['id'] = $row['id'];
       $row['immagine'] = $row['immagine'];
       $row['marca'] = utf8_encode($row['marca']);
       $row['modello'] = utf8_encode($row['modello']);
@@ -33,10 +34,10 @@ if(isset($_GET['id'])) {
 
 session_start();
 
-if(!isset($_SESSION['auth']))
+if(!isset($_SESSION['user']))
   inject(FALSE, $main, $body, $db);
 else
-  inject(TRUE, $main, $body, $db, isset($_SESSION['auth']['service']['admin.php']));
+  inject(TRUE, $main, $body, $db, FALSE);
 
 $main->close();
 

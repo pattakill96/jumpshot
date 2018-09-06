@@ -604,15 +604,15 @@ Class Template {
 		
 		$this->setContent("base", (isset($GLOBALS['config']['base'])? $GLOBALS['config']['base']: ""));
 		
-		if (isset($_SESSION['user'])) {
+		 //if (isset($_SESSION['user'])) {
 		
-			$this->setContent("user.username", $_SESSION['user']['username']);
-			$this->setContent("user.name", $_SESSION['user']['name']);
-			$this->setContent("user.surname", $_SESSION['user']['surname']);
-			$this->setContent("user.lastlogin", $_SESSION['user']['lastlogin']);
+		 	//$this->setContent(NULL, $_SESSION['user']['username']);
+		// 	$this->setContent("user.name", $_SESSION['user']['name']);
+		// 	$this->setContent("user.surname", $_SESSION['user']['surname']);
+		// 	$this->setContent("user.lastlogin", $_SESSION['user']['lastlogin']);
 		
-			$this->setContent("user.email", $_SESSION['user']['email']);
-		}
+		// 	$this->setContent("user.email", $_SESSION['user']['email']);
+		// }
 		
 		
 		

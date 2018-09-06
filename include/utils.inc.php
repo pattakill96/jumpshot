@@ -3,15 +3,15 @@
 function inject($authenticated, $main, $body, $db, $admin = 0) {
   if($authenticated) {
     $logoutButton = new Template("html/button-logout.html");
-    $userButton = new Template("html/button-user.html");
+    // $userButton = new Template("html/button-user.html");
     $cartButton = new Template("html/button-cart.html");
-    $adminButton = new Template("html/button-admin.html");
-    $adminButtonSidebar = new Template("html/button-admin-sidebar.html");
+    // $adminButton = new Template("html/button-admin.html");
+    // $adminButtonSidebar = new Template("html/button-admin-sidebar.html");
 
     // $button_cart_query = "SELECT quantita, prezzo
-    //                       FROM carrello, prodotto
-    //                       WHERE carrello.username = '{$_SESSION['auth']['username']}'
-    //                       AND carrello.id_prodotto = prodotto.id_prodotto;";
+    //                        FROM carrello, prodotto
+    //                        WHERE carrello.username = '{$_SESSION['user']}'
+    //                        AND carrello.id_prodotto = prodotto.id_prodotto;";
 
     // $db->query($button_cart_query);
     // $result = $db->getResult();

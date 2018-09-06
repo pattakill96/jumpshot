@@ -15,34 +15,33 @@
    *
   */
   session_start(); // attiva la gestione sessione
+    if (!isset($_SESSION['user'])){
+        if ((!isset($_POST['username'])) AND (!isset($_POST['password']))) {
+            /*
+            * controllo se l'utente ha inserito username e password nella form di login,
+            * se l'utente inserisce u e p nella form di login, lo script login.php viene
+            * richiamato attraverso la action della form
+            *
+            */
+        } else {
+            $login_query = "SELECT id, nome,cognome FROM utenti WHERE username = '{$_POST['username']}' AND password = '".MD5($_POST['password'])."'";
+            
 
-  if ((!isset($_POST['username'])) AND (!isset($_POST['password']))) {
-      /*
-       * controllo se l'utente ha inserito username e password nella form di login,
-       * se l'utente inserisce u e p nella form di login, lo script login.php viene
-       * richiamato attraverso la action della form
-       *
-      */
-      if (!isset($_SESSION['auth'])) {
-          // non è in sessione
-          Header("Location: error.php?id=1002");
-          exit;
-      }
-  } else {
-    $login_query = "SELECT nome, cognome FROM utenti WHERE username = '{$_POST['username']}' AND password = '".MD5($_POST['password'])."'";
-    
+            $db->query($login_query);
+            $result = $db->getResult();
 
-      $db->query($login_query);
-      $result = $db->getResult();
-
-      if (!$result) {
-          /* utente o password errate */
-          Header("Location: error.php?id=1001");
-          exit;
-      }
-      /*
-       * username e password corrette, utente loggato
-      */
-      $_SESSION['auth'] = $result[0];
-    }
+            if (!$result) {
+                /* utente o password errate */
+                Header("Location: error.php?id=1001");
+                exit;
+            }
+            /*
+            * username e password corrette, utente loggato
+            */
+            $_SESSION['user'] = $result[0];
+            $_SESSION['nome'] = $result[1];
+            $_SESSION['cognome'] = $result[2];
+            
+            }
+        }
 ?>
