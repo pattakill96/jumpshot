@@ -27,7 +27,6 @@
     }else{
         $app=rand();
         $_SESSION['ext']['id']=$app;
-
         $add_user_ext="INSERT INTO utentiext (id,token) VALUES ($app,1)";
         $db->query($add_user_ext);
         $add_to_cart_query = "INSERT INTO carrelloext (utente,prodotto,taglia,prezzo)
