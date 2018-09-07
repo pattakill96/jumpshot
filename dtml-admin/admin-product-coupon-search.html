@@ -1,0 +1,29 @@
+<!-- Main -->
+<div id="main">
+
+  <!-- Post -->
+    <article le class="post">
+      <header>
+        <div class="title">
+          <h2><a href="admin-product-<[action_script]>.php"><[action_title]></a></h2>
+          <p><[action_desc]></p>
+        </div>
+      </header>
+
+      <div class="row uniform">
+        <div class="12u$ center" align="center">
+          <form id="search" method="get" action="admin-product-<[action_script]>.php">
+            <input type="text" name="" placeholder="Cerca coupon o prodotto" maxlength="20" value="<[ricerca]>" style="width:25%;min-width:15em;" />
+          </form>
+          <p><[notifica]></p>
+        </div>
+        <[foreach]>
+        <div class="4u 12u$(xsmall)">
+          <a class="product-click" action="<[action]>" coupon="<[id_coupon]>" titolo="<[titolo]>" style="cursor:pointer;"><[titolo]></a>
+        </div>
+        <[/foreach]>
+      </div>
+      <[pagination]>
+    </article>
+
+</div>

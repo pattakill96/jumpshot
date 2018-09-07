@@ -4,7 +4,7 @@ function inject($authenticated, $main, $body, $db, $admin = 0) {
   if($authenticated) {
     $logoutButton = new Template("html/button-logout.html");
     // $userButton = new Template("html/button-user.html");
-    $cartButton = new Template("html/button-cart.html");
+    //$cartButton = new Template("html/button-cart.html");
     // $adminButton = new Template("html/button-admin.html");
     // $adminButtonSidebar = new Template("html/button-admin-sidebar.html");
 
@@ -32,8 +32,8 @@ function inject($authenticated, $main, $body, $db, $admin = 0) {
   //$main->setContent("user-button", $userButton->get());
   //$main->setContent("cart-button", $cartButton->get());
   if($admin) {
-    $main->setContent("admin-button", $adminButton->get());
-    $main->setContent("admin-button-sidebar", $adminButtonSidebar->get());
+    //$main->setContent("admin-button", $adminButton->get());
+    //$main->setContent("admin-button-sidebar", $adminButtonSidebar->get());
   }
 } else {
   $loginForm = new Template("html/form-login.html");

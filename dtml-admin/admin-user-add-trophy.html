@@ -1,0 +1,36 @@
+<!-- Main -->
+<div id="main">
+
+  <!-- Post -->
+  <article class="post" >
+    <header>
+      <div class="title">
+        <h2><a href="admin-user-add-trophy.php?add-trophy=<[username]>">Assegna trofeo a &quot;<[username]>&quot;</a></h2>
+        <p>Da qui puoi selezionare un trofeo da assegnare all'utente &quot;<[username]>&quot;.</p>
+      </div>
+    </header>
+
+    <form style="text-align:center;" name="user-add-trophy-form" action="admin-user-add-trophy.php?username=<[username]>" method="post">
+      <div class="row uniform" >
+        <div class="12u$" >
+          <select id="trofeo" name="trofeo" style="width:25%;min-width:15em;margin:auto;" required>
+              <option value="">- Seleziona trofeo -</option>
+              <option value="1">1 - Trofeo Beginner</option>
+              <option value="2">2 - Trofeo Soldato</option>
+              <option value="3">3 - Trofeo Veterano-</option>
+              <option value="4">4 - Trofeo Master</option>
+              <option value="5">5 - Trofeo Granmaster</option>
+          </select>
+          <p><[notifica]></p>
+        </div>
+        <div class="12u$" style="margin-top:2em;">
+          <ul class="actions">
+            <li><input type="submit" value="Salva" /></li>
+            <li><input type="reset" value="Reset" /></li>
+          </ul>
+        </div>
+      </div>
+    </form>
+  </article>
+
+</div>

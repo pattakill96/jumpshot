@@ -1,14 +1,13 @@
 <?php
 
   function adminInject($main, $body) {
-    $logoutButton = new Template("../themes/default/dtml/button-logout.html");
-    $userButton = new Template("../themes/default/dtml/button-user.html");
-    $cartButton = new Template("../themes/default/dtml/button-cart.html");
-    $adminButton = new Template("../themes/default/dtml/button-admin.html");
-    $adminButtonSidebar = new Template("../themes/default/dtml/button-admin-sidebar.html");
+     $logoutButton = new Template("../dtml-admin/button-logout.html");
+    // $userButton = new Template("../themes/default/dtml/button-user.html");
+    // $cartButton = new Template("../themes/default/dtml/button-cart.html");
+    // $adminButton = new Template("../themes/default/dtml/button-admin.html");
+    // $adminButtonSidebar = new Template("../themes/default/dtml/button-admin-sidebar.html");
 
     $main->setContent("logout", $logoutButton->get());
-
     $main->setContent("body", $body->get());
   }
 

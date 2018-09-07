@@ -1,0 +1,46 @@
+<!-- Main -->
+<div id="main">
+
+  <!-- Post -->
+    <article le class="post">
+      <header>
+        <div class="title">
+          <h2><a href="admin-product-coupon-edit.php?coupon-edit=<[id_coupon]>">Modifica coupon: <[id_coupon]></a></h2>
+          <p>Da qui puoi modificare il codice coupon &quot;<[id_coupon]>&quot; per il prodotto &quot;<[titolo]>&quot;.</p>
+        </div>
+      </header>
+
+      <form name="product-coupon-form" action="admin-product-coupon-edit.php?old=id_coupon" method="post">
+        <div class="row uniform" style="width:21em;margin:auto;">
+          <div class="5u 12u$(xsmall)">
+              <p>Codice coupon:</p>
+          </div>
+          <div class="7u$ 12u$(xsmall)">
+              <input type="text" name="id_coupon" id="id_coupon" value="<[id_coupon]>" maxlength="10"  placeholder="Codice coupon" required/>
+          </div>
+          <div class="5u 12u$(xsmall)">
+              <p>Validit&agrave; fino a:</p>
+          </div>
+          <div class="7u$ 12u$(xsmall)">
+              <input type="date" name="validita" id="validita" value="<[validita]>" placeholder="Data" style="padding-left:1em;" />
+          </div>
+          <div class="5u 12u$(xsmall)">
+              <p>Sconto (in %):</p>
+          </div>
+          <div class="7u$ 12u$(xsmall)">
+            <input type="number" step="0" min="0" max="99" id="sconto" name="sconto" value="<[sconto]>" placeholder="Sconto" style="padding-left:1em;" required/>
+          </div>
+          <div class="12u$" style="margin-top:2em;">
+            <ul class="actions" style="text-align:center;">
+              <li><input type="submit" value="Salva" /></li>
+              <li><input type="reset" value="Reset" /></li>
+              <li style="height: 30px;">
+                <p><[notifica]></p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </form>
+    </article>
+
+</div>

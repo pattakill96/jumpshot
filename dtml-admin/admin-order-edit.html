@@ -1,0 +1,50 @@
+<!-- Main -->
+<div id="main">
+
+    <!-- Post -->
+    <article class="post">
+      <header>
+        <div class="title">
+          <h2>Ordin<[char]> dell'utente &#39;<a href="admin-order-edit.php?user=<[username]>"><[username]></a>&#39;</h2>
+          <p>Qui puoi visualizzare <[text]> di &#39;<[username]>&#39; in attesa di approvazione.</p>
+        </div>
+      </header>
+      <[foreach]>
+      <div class="table-wrapper">
+        <h3>(<a href="admin-order-edit.php?id=<[id_ordine]>">Ordine n°<[id_ordine]></a>) Data ordine: <[data_ordine]> &nbsp;(<a href="#" class="order-click" action="order-delete" username="<[user]>" order="<[id_ordine]>">Elimina</a>)</h3>
+        <table class="alt" style="text-align: right;">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Titolo prodotto</th>
+              <th>Quantit&agrave;</th>
+              <th>Prezzo unitario</th>
+              <th>Prezzo totale</th>
+            </tr>
+          </thead>
+          <tbody>
+            <[foreach]>
+            <tr>
+              <td style="text-align:center;"><a href="admin-order-edit.php?user=<[user]>&order=<[order-id]>&delete_prod=<[id_prodotto]>" style="border: 0;"><i class="fa fa-trash"></i></a></td>
+              <td style="text-align:left;"><[titolo]></td>
+              <td style="text-align:right;"><input class="prod-quant-input" order-id="<[order-id]>" product-id="<[id_prodotto]>" product-price="<[prezzo]>" type="text" value="<[quantita]>" maxlength="2"></td>
+              <td>&euro;<[prezzo]></td>
+              <td>&euro;<span class="total_item_price_<[id_prodotto]>"><[prezzo_totale]></span></td>
+            </tr>
+            <[/foreach]>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="2" style="text-align:left;"><a href="#" class="button blue order-click" action="order-purchase" username="<[user_confirm]>" order="<[id_ordine_confirm]>">Approva ordine</a></td>
+              <td colspan="2">Totale ordine:</td>
+              <td><strong>&euro;<span class="order-total-price-<[id_ordine_confirm]>"><[totale_ordine]></span></strong></td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+      <[/foreach]>
+      <footer>
+      </footer>
+    </article>
+    
+</div>

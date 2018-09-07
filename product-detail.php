@@ -8,9 +8,10 @@ $main = new Template("html/frame-public.html");
 $body = new Template("html/product-detail.html");
 
 if(isset($_GET['id'])) {
-  $product_detail_query = "SELECT prodotti.*, immagini.immagine, taglieprodotti.taglia, taglieprodotti.quantita
+  $product_detail_query = "SELECT DISTINCT prodotti.*, immagini.immagine, taglieprodotti.taglia, taglieprodotti.quantita
                           FROM prodotti, taglieprodotti, immagini
-                          WHERE prodotti.id = {$_GET['id']} AND taglieprodotti.scarpa = {$_GET['id']} AND immagini.prodotto = {$_GET['id']} AND taglieprodotti.quantita > 0 ";
+                          WHERE prodotti.id = {$_GET['id']} AND taglieprodotti.scarpa = {$_GET['id']} AND immagini.prodotto = {$_GET['id']} AND taglieprodotti.quantita > 0 
+                          ORDER BY taglieprodotti.taglia ASC";
 
   $db->query($product_detail_query);
 
@@ -26,6 +27,7 @@ if(isset($_GET['id'])) {
       $row['marca'] = utf8_encode($row['marca']);
       $row['modello'] = utf8_encode($row['modello']);
       $row['taglia'] = utf8_encode($row['taglia']);
+      $row['app'] = $row['taglia'];
       $row['prezzo'] = utf8_decode($row['prezzo']);
       $body->setContent($row);
     }

@@ -1,0 +1,32 @@
+<!-- Main -->
+<div id="main">
+
+  <!-- Post -->
+    <article le class="post">
+      <header>
+        <div class="title">
+          <h2><a href="admin-product-<[action_script]>.php"><[action_title]></a></h2>
+          <p><[action_desc]></p>
+        </div>
+      </header>
+
+      <div class="row uniform">
+        <div class="12u$ center" align="center">
+          <form id="search" method="get" action="admin-product-<[action_script]>.php">
+            <input type="text" class="<[action_script]>" name="product-search" placeholder="Cerca prodotto (vuoto per listarli tutti)" maxlength="20" value="<[ricerca]>" style="width:25%;min-width:15em;" />
+          </form>
+          <p><[notifica]></p>
+        </div>
+      </div>
+      <div class="row uniform product-container">
+        <[foreach]>
+        <div class="4u 12u$(xsmall)" style="text-align:center;margin-bottom:1em;">
+          <a class="product-click" action="<[action]>" product="<[id_prodotto]>" coupon="<[id_coupon]>" titolo="<[titolo]>" style="border-bottom: transparent !important;cursor:pointer;"><img src="../products/<[id_prodotto]>/<[id_prodotto]>-cover.jpg" width="100em"></a><br>
+          <a class="product-click" action="<[action]>" product="<[id_prodotto]>" coupon="<[id_coupon]>" titolo="<[titolo]>" style="cursor:pointer;"><[titolo]></a>
+        </div>
+        <[/foreach]>
+      </div>
+      <[pagination]>
+    </article>
+
+</div>

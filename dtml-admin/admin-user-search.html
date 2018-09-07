@@ -1,0 +1,32 @@
+<!-- Main -->
+<div id="main">
+
+  <!-- Post -->
+    <article le class="post">
+      <header>
+        <div class="title">
+          <h2><a href="admin-user-<[action_script]>.php"><[action_title]></a></h2>
+          <p><[action_desc]></p>
+        </div>
+      </header>
+
+      <div class="row uniform">
+        <div class="12u$ center" align="center">
+          <form id="search" method="get" action="admin-user-<[action_script]>.php" style="width:25%;min-width:15em;">
+            <input type="text" class="<[action_script]>" name="user-search" placeholder="Cerca utente" maxlength="20" value="<[ricerca]>" />
+          </form>
+          <p><[notifica]></p>
+        </div>
+      </div>
+      <div class="row uniform users-container">
+        <[foreach]>
+        <div class="4u 12u$(xsmall)" style="text-align:center;margin-bottom:.5em;">
+          <a class="user-click" action="<[action]>" username="<[username]>" style="border-bottom: transparent !important;cursor:pointer;"><img src="../themes/default/assets/images/user.png" width="60em"></a><br>
+          <a class="user-click" action="<[action]>" username="<[username]>" style="cursor:pointer;"><[username]></a>
+        </div>
+        <[/foreach]>
+      </div>
+      <[pagination]>
+    </article>
+
+</div>

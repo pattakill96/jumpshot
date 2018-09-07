@@ -1,0 +1,34 @@
+<!-- Main -->
+<div id="main">
+
+  <!-- Post -->
+  <[foreach]>
+  <article class="post">
+    <header>
+      <div class="title">
+        <h2><a href="admin-review-detail.php?id=<[id_recensione]>"><[titolo_recensione]></a></h2>
+        <a href="product-detail.php?id=<[id_prodotto]>"><p>Recensione di: <strong><[titolo]></strong></p></a>
+      </div>
+      <div class="meta">
+        <time class="published"><[data]></time>
+        <a class="author"><span class="name"><[username]></span><span class="fa fa-user fa-2x"></span></a>
+      </div>
+    </header>
+    <a href="admin-review-detail.php?id=<[id_recensione]>" class="image featured"><img src="<[percorso]>" alt="gameplay" /></a>
+    <blockquote><[descrizione]></blockquote>
+    <footer>
+      <ul class="actions">
+        <li><a href="admin-review-detail.php?id=<[id_recensione]>" class="button big">Continua a leggere</a></li>
+      </ul>
+      <ul class="stats">
+        <li><a class="icon fa-heart"><[num_likes]></a></li>
+      </ul>
+    </footer>
+  </article>
+  <[/foreach]>
+
+  <[errore]>
+
+  <[pagination]>
+
+</div>

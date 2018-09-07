@@ -3,6 +3,7 @@
 
     <!-- Post -->
       <article class="post" >
+        
         <header>
           <div class="title">
             <h2><a href="#"><[titolo]></a></h2>
@@ -12,12 +13,21 @@
         <div style="display:flex;">
           <img style="width:500px; align-self: flex-start; margin:0 1em 0em 0em;" src="<[immagine]>" alt="" />
           <div style="display:flex; flex-direction:column; justify-content:center; margin-left: 2em;">
+            <form method="GET" action="addToCart.php">
+            <input type="hidden" name="id" value="<[id]>" />
             <h1><[marca]></h1>
             <h1><[modello]></h1>
-            <p style="margin-top: .8em; font-size: 20px;"><strong>Prezzo:</strong> &euro;<[prezzo]></p>
-            <p><a  class="button small addToCart" href="addToCart.php?id=<[id]>&size=<[marca]>&price=<[prezzo]>"product-id="<[id]>" product-name="<[marca]>">Aggiungi al carrello</a></p>
-          </div>
+            <select name="size">
+              <[foreach]>
+              <option value="<[taglia]>"><[taglia]></option>
+              <[/foreach]>
+            </select>
+            
+              <p style="margin-top: .8em; font-size: 20px;"><strong>Prezzo:</strong> &euro;<[prezzo]></p>
+              <button type="submit" class="button small addToCart">Aggiungi al carrello</button></form>
+            </div>
         </div>
+      
       </article>
 </form>
   </div>

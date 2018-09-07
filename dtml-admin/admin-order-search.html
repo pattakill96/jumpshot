@@ -1,0 +1,31 @@
+<!-- Main -->
+<div id="main">
+
+  <!-- Post -->
+    <article le class="post">
+      <header>
+        <div class="title">
+          <h2><a href="admin-order-<[action_script]>.php"><[action_title]></a></h2>
+          <p><[action_desc]></p>
+        </div>
+      </header>
+
+      <div class="row uniform">
+        <div class="12u$ center" align="center">
+          <form id="search" method="get" action="admin-order-<[action_script]>.php" style="width:25%;min-width:15em;">
+            <input type="text" name="" placeholder="Cerca utente o n° ordine" maxlength="20" value="<[ricerca]>" />
+          </form>
+          <p><[notifica]></p>
+        </div>
+        <[foreach]>
+        <div class="4u 12u$(xsmall)" style="text-align:center;margin-bottom:.5em;">
+          <a class="order-click" action="<[action]>-by-id" order="<[id_ordine]>" style="border-bottom: transparent !important;cursor:pointer;"><img src="../themes/default/assets/images/order.png" width="60em"></a><br>
+          <a class="order-click" action="<[action]>-by-id" order="<[id_ordine]>" style="cursor:pointer;"><[id]></a>
+          <a class="order-click" action="<[action]>-by-user" username="<[username]>" style="cursor:pointer;"><[user]></a>
+        </div>
+        <[/foreach]>
+      </div>
+      <[pagination]>
+    </article>
+
+</div>
