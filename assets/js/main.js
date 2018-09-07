@@ -181,4 +181,96 @@
 
 			});
 
+
+			var $chart = $('#chart');
+
+		$chart.wrapInner('<div class="inner"></div>');
+
+		$chart._locked = false;
+
+		$chart._lock = function() {
+
+			if ($chart._locked)
+				return false;
+
+			$chart._locked = true;
+
+			window.setTimeout(function() {
+				$chart._locked = false;
+			}, 350);
+
+			return true;
+
+		};
+
+		$chart._show = function() {
+
+			if ($chart._lock())
+				$body.addClass('is-chart-visible');
+
+		};
+
+		$chart._hide = function() {
+
+			if ($chart._lock())
+				$body.removeClass('is-chart-visible');
+
+		};
+
+		$chart._toggle = function() {
+
+			if ($chart._lock())
+				$body.toggleClass('is-chart-visible');
+
+		};
+
+		$chart
+			.appendTo($body)
+			.on('click', function(event) {
+				event.stopPropagation();
+			})
+			.on('click', 'a', function(event) {
+
+				var href = $(this).attr('href');
+
+				event.preventDefault();
+				event.stopPropagation();
+
+				// Hide.
+					$chart._hide();
+
+				// Redirect.
+					if (href == '#chart')
+						return;
+
+					window.setTimeout(function() {
+						window.location.href = href;
+					}, 350);
+
+			})
+			.append('<a class="close" href="#chart">Close</a>');
+
+		$body
+			.on('click', 'a[href="#chart"]', function(event) {
+
+				event.stopPropagation();
+				event.preventDefault();
+
+				// Toggle.
+					$chart._toggle();
+
+			})
+			.on('click', function(event) {
+
+				// Hide.
+					$chart._hide();
+
+			})
+			.on('keydown', function(event) {
+
+				// Hide on escape.
+					if (event.keyCode == 27)
+						$chart._hide();
+
+			});
 })(jQuery);

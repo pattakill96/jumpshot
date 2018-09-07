@@ -5,6 +5,7 @@
 
 // Duration.
 	$duration: (
+		chart:				0.45s,
 		menu:				0.45s,
 		transition:			0.2s
 	);
@@ -18,7 +19,8 @@
 		gutter:				2.5em,
 		field-gutter:		2em,
 		inner:				68em,
-		menu:				22em
+		menu:				22em,
+		chart:				22em,
 	);
 
 // Font.

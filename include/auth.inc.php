@@ -51,6 +51,7 @@
             /*
             * username e password corrette, utente loggato
             */
+            session_unset();
             $_SESSION['user'] = $result[0];
             $_SESSION['nome'] = $result[1];
             $_SESSION['cognome'] = $result[2];

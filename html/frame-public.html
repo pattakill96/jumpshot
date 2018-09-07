@@ -44,6 +44,40 @@
       <li><[logout]></li>
     </ul>
   </nav>
+
+  <nav id="chart">
+      <h2>Carrello</h2>
+      <[foreach]>
+      <h2><[errore]></h2>
+      <[/foreach]>
+
+									<div class="table-wrapper">
+										<table>
+											<thead>
+												<tr>
+													<th>Nome</th>
+													<th>Taglia</th>
+                          <th>Prezzo</th>
+												</tr>
+											</thead>
+											<tbody>
+											<[foreach]>	<tr>
+                            
+                            <th><[marca]> <[modello]></th>
+                            <th><[taglia]></th>
+                            <th><[prezzo]>&euro;</th>
+												</tr><[/foreach]>
+                      </tbody>
+                      <tfoot>
+                          <tr>
+                            <td><h3><a href="../chart.php">Ordina/Modifica</a></h3></td>
+                            <td colspan="1"></td>
+                            <td><[totale]>&euro;</td>
+                          </tr>
+                        </tfoot>
+                    </table>
+                  </div>
+    </nav>
  </header>
 </div>
 <div style="height:30px"></div>
