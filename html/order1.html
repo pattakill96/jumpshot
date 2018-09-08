@@ -1,0 +1,83 @@
+<!-- Main -->
+<div id="main">
+
+  <!-- Post -->
+        <div class="inner">
+        <h1>Il tuo Ordine</h1>
+        <blockquote>Qui i prodotti che hai stai per comprare.</blockquote>
+      </div>
+      <div class="inner">
+      <div class="table-wrapper">
+        <table class="alt">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Prodotto</th>
+              <th>Taglia</th>
+              <th>Prezzo</th>
+              
+            </tr>
+          </thead>
+          <tbody>
+            <[foreach]>	<tr>
+                  <td> <img style="width:100px;" src="<[immagine]>" alt="" /></td>
+                  <td style="vertical-align:middle;"><[marca]> <[modello]></td>
+                  <td style="vertical-align:middle;"><[taglia]></td>
+                  <td style="vertical-align:middle;"><[prezzo]>&euro;</td>
+                  
+              </tr><[/foreach]>
+            </tbody>
+            <tfoot>
+                <tr>
+                  <td colspan="3"></td>
+                  <td>Totale<h2><[totale]>&euro;</h2></td>
+                </tr>
+              </tfoot>
+            </table>
+    </div>
+   
+    <section>
+      <h2>Inserisci i tuoi dati</h2>
+      <form method="post" action="#">
+        <div class="row gtr-uniform">
+          <div class="col-6 col-12-xsmall">
+            <input type="email" name="demo-email" id="demo-email" value="" placeholder="Email" />
+          </div>
+          <div class="col-6 col-12-xsmall">
+            <input type="password" name="demo-password" id="demo-password" value="" placeholder="password" />
+          </div>
+          <div class="col-12">
+            <input type="text" name="demo-indirizzo" id="indirizzo" placeholder="Indirizzo" />
+          </div>
+          <div class="col-4 col-12-small">
+            <input type="radio" id="PayPal" name="demo-priority" checked>
+            <label for="PayPal">PayPal</label>
+          </div>
+          <div class="col-4 col-12-small">
+            <input type="radio" id="Contrassegno" name="demo-priority">
+            <label for="Contrassegno">Contrassegno</label>
+          </div>
+          <div class="col-4 col-12-small">
+            <input type="radio" id="Bonifico" name="demo-priority">
+            <label for="Bonifico">Bonifico</label>
+          </div>
+          
+          
+          <div class="col-12">
+            <ul class="actions" style="float:right;">
+              <li><input type="submit" value="Send Message" class="primary" /></li>
+              <li><input type="reset" value="Reset" /></li>
+            </ul>
+          </div>
+        </div>
+      </form>
+    </section>
+
+      
+   <ul class="actions" style="float:right;">
+        <li><a href="./order.php" class="button primary">Procedi con l'ordine</a></li>
+        </ul><ul class="actions">
+        <li><a href="index.php" class="button">Continua gli acquisti</a></li>
+      </ul>
+</div>
+</div>

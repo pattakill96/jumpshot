@@ -2,61 +2,47 @@
 <div id="main">
 
   <!-- Post -->
-  <article class="post">
-    <header>
-      <div class="title">
-        <h2>Pagamento</h2>
-        <p>Qui il riassunto del tuo ordine e le opzioni di pagamento.</p>
+        <div class="inner">
+        <h1>Il tuo Ordine</h1>
+        <blockquote>Qui i prodotti che hai stai per comprare.</blockquote>
       </div>
-    </header>
-    <div class="table-wrapper">
-      <table class="alt" style="text-align: right;">
-        <form action="cart.php" method="post">
+      <div class="inner">
+      <div class="table-wrapper">
+        <table class="alt">
           <thead>
             <tr>
               <th></th>
-              <th>Titolo prodotto</th>
-              <th>Quantit&agrave;</th>
-              <th>Prezzo unitario</th>
-              <th>Prezzo totale</th>
+              <th>Prodotto</th>
+              <th>Taglia</th>
+              <th>Prezzo</th>
+              
             </tr>
           </thead>
           <tbody>
-            <[foreach]>
-              <tr>
-                <td style="text-align:center;"><a href="cart.php?delete=<[id_prodotto]>" style="border: 0;"><i class="fa fa-trash"></i></a></td>
-                <td style="text-align:left;"><[titolo]></td>
-                <td style="text-align:right;"><input class="prod-quant-input" product-id="<[id_prodotto]>" type="text" value="<[quantita]>" maxlength="2" disabled></td>
-                <td>&euro;<[prezzo]></td>
-                <td>&euro;<[prezzo_totale]></td>
-              </tr>
-            <[/foreach]>
-          </tbody>
-          <tfoot>
-            <tr>
-              <td colspan="4">Totale ordine:</td>
-              <td><strong>&euro;<[totale_ordine]></strong></td>
-            </tr>
-          </tfoot>
-        </form>
-      </table>
+            <[foreach]>	<tr>
+                  <td> <img style="width:100px;" src="<[immagine]>" alt="" /></td>
+                  <td style="vertical-align:middle;"><[marca]> <[modello]></td>
+                  <td style="vertical-align:middle;"><[taglia]></td>
+                  <td style="vertical-align:middle;"><[prezzo]>&euro;</td>
+                  
+              </tr><[/foreach]>
+            </tbody>
+            <tfoot>
+                <tr>
+                  <td colspan="3"></td>
+                  <td>Totale<h2><[totale]>&euro;</h2></td>
+                </tr>
+              </tfoot>
+            </table>
     </div>
+   
+    </form>
 
-
-    <div class="address">
-      <p><strong>Nome:</strong> <[nome]></p>
-      <p><strong>Cognome:</strong> <[cognome]></p>
-      <p><strong>Stato:</strong> <[stato]></p>
-      <p><strong>Citt&agrave;:</strong> <[citta]></p>
-      <p><strong>Indirizzo:</strong> <[indirizzo]></p>
-      <p><strong>CAP:</strong> <[cap]></p>
-      <p><strong>Cellulare:</strong> <[cellulare]></p>
-    </div>
-
-    <ul class="actions" style="margin-top:2em;">
-      <li><a href="cart.php" class="button small">Torna Indietro</a></li>
-      <li><a href="order.php?completed" class="button blue">Paypal</a></li>
-    </ul>
-  </article>
-
+      
+   <ul class="actions" style="float:right;">
+        <li><a href="./order.php" class="button primary">Procedi con l'ordine</a></li>
+        </ul><ul class="actions">
+        <li><a href="index.php" class="button">Continua gli acquisti</a></li>
+      </ul>
+</div>
 </div>

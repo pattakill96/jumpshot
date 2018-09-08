@@ -46,7 +46,7 @@
     $row['errore']="";
     if(!$result) {
     $row['errore']="Non ci sono prodotti nel tuo carrello";
-    exit;}
+    }else{
     $totale=0;
     foreach($result as $row) {
       $row['marca'] = utf8_encode($row['marca']);
@@ -57,7 +57,7 @@
       $totale = number_format($totale + $row['prezzo'], 2, '.', '');
       $main->setContent($row);
     }
-    $main->setContent("totale", $totale);
+    $main->setContent("totale", $totale);}
   }
   }
   if(isset($_SESSION['ext'])){
@@ -71,7 +71,7 @@
     $row['errore']="";
     if(!$result) {
     $row['errore']="Non ci sono prodotti nel tuo carrello";
-    exit;}
+    }else{
     $totale=0;
     foreach($result as $row) {
       $row['marca'] = utf8_encode($row['marca']);
@@ -82,7 +82,7 @@
       $totale = number_format($totale + $row['prezzo'], 2, '.', '');
       $main->setContent($row);
     }
-    $main->setContent("totale", $totale);
+    $main->setContent("totale", $totale);}
   }
   }
   

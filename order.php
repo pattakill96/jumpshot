@@ -4,33 +4,16 @@
   require "include/utils.inc.php";
 
   session_start();
- 
   $main = new Template("html/frame-public.1.html");
-  $body = new Template("html/chart.html");
+  $body = new Template("html/order.html");
+  $body1 = new Template("html/order1.html");
   if(isset($_SESSION['ext'])){
     $utente = $_SESSION['ext']['id'];
     $tab = 'carrelloext';}
   if(isset($_SESSION['user'])){
     $utente = $_SESSION['user']['id'];
-    $query_carr="SELECT prodotti.*,taglia FROM carrello,prodotti WHERE prodotti.id=carrello.prodotto AND carrello.utente=$utente";
+    $query_carr="SELECT prodotti.*,taglia,immagini.mmagine FROM carrello,prodotti,immagini WHERE prodotti.id=carrello.prodotto AND carrello.utente=$utente AND prodotti.id = immagini.prodotto";
     $tab = 'carrello'; }
-  if(isset($_GET['empty'])){
-    $query_empty="DELETE FROM $tab WHERE $tab.utente=$utente";
-    $db->query($query_empty);
-  if($db->status == "ERROR") {
-    Header('Location: index.php?error=1009');
-  }
-  Header('Location: index.php');
-  } 
-  if(isset($_GET['id'])){
-    $query_empty="DELETE FROM $tab WHERE $tab.utente=$utente AND $tab.prodotto = '{$_GET['id']}' ";
-    $db->query($query_empty);
-  if($db->status == "ERROR") {
-    Header('Location: index.php?error=1009');
-  }
-  $add_shoe="UPDATE taglieprodotti SET taglieprodotti.quantita = taglieprodotti.quantita +1  WHERE scarpa = '{$_GET['id']}' AND taglia = '{$_GET['t']}'";
-  $db->query($add_shoe);
-  }
 
   if(isset($_SESSION['user'])){
     $utente = $_SESSION['user']['id'];
@@ -45,6 +28,7 @@
     exit;}
     $totale=0;
     foreach($result as $row) {
+        $row['immagine'] = $row['immagine'];
       $row['marca'] = utf8_encode($row['marca']);
       $row['modello'] = $row['modello'];
       $row['id'] = $row['id'];
@@ -58,7 +42,7 @@
   }
     if(isset($_SESSION['ext'])){
     $utente = $_SESSION['ext']['id'];
-    $query_carr="SELECT prodotti.*,taglia FROM carrelloext,prodotti WHERE prodotti.id=carrelloext.prodotto AND carrelloext.utente=$utente";
+    $query_carr="SELECT prodotti.*,taglia,immagini.immagine FROM carrelloext,prodotti,immagini  WHERE prodotti.id=carrelloext.prodotto AND carrelloext.utente=$utente AND prodotti.id = immagini.prodotto";
     $db->query($query_carr);
   if($db->status == "ERROR") {
     Header('Location: index.php?error=1009');
@@ -70,15 +54,16 @@
     exit;}
     $totale=0;
     foreach($result as $row) {
+        $row['immagine'] = $row['immagine'];
       $row['marca'] = utf8_encode($row['marca']);
       $row['modello'] = $row['modello'];
       $row['id'] = $row['id'];
       $row['prezzo'] = $row['prezzo'];
       $row['taglia'] = $row['taglia'];
       $totale = number_format($totale + $row['prezzo'], 2, '.', '');
-      $body->setContent($row);
+      $body1->setContent($row);
     }
-    $body->setContent("totale", $totale);
+    $body1->setContent("totale", $totale);
   }
   }
 
@@ -91,7 +76,9 @@
     else if($_GET['product_error'] == 1007)
       $body->setContent("errore_prodotti", "<span style=\"color:#31708f;\">Non ci sono prodotti... :(</span>");
   } else {
-    inject(FALSE, $main , $body ,$db);
+    inject(FALSE, $main , $body1 ,$db);
   }
   $main->close();
+  ?>
+
   ?>

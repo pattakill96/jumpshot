@@ -30,10 +30,10 @@
 
   session_start();
 
-  if(!isset($_SESSION['auth']))
+  if(!isset($_SESSION['user']))
     inject(FALSE, $main, $body, $db);
   else
-    inject(TRUE, $main, $body, $db, isset($_SESSION['auth']['service']['admin.php']));
+    inject(TRUE, $main, $body, $db, isset($_SESSION['admin']));
 
   $main->close();
 ?>

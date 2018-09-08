@@ -1,0 +1,48 @@
+<!-- Main -->
+<div id="main">
+
+  <!-- Post -->
+        <div class="inner">
+        <h1>Il tuo carrello</h1>
+        <blockquote>Qui i prodotti che hai aggiunto al tuo carrello.</blockquote>
+      </div>
+      <div class="inner">
+      <div class="table-wrapper">
+        <table class="alt">
+          <thead>
+            <tr>
+              <th>X</th>
+              <th>Prodotto</th>
+              <th>Taglia</th>
+              <th>Prezzo</th>
+              
+            </tr>
+          </thead>
+          <tbody>
+            <[foreach]>	<tr>
+                  <td><a style="color:red" href="./chart.php?id=<[id]>&t=<[taglia]>"> X</a></td>
+                  <td><[marca]> <[modello]></td>
+                  <td><[taglia]></td>
+                  <td><[prezzo]>&euro;</td>
+                  
+              </tr><[/foreach]>
+            </tbody>
+            <tfoot>
+                <tr>
+                  <td colspan="3"></td>
+                  <td><h2><[totale]>&euro;</h2></td>
+                </tr>
+              </tfoot>
+            </table>
+    </div>
+   
+    </form>
+
+      <ul class="actions">
+        <li><a href="index.php" class="button small">Continua gli acquisti</a></li>
+        <li><a href="./chart.php?empty" class="button small red">Svuota il carrello</a></li>
+      </ul><ul class="actions" style="float:right;">
+        <li><a href="./order.php" class="button">Procedi con l'ordine</a></li>
+      </ul>
+</div>
+</div>

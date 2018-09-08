@@ -24,9 +24,7 @@
       <nav>
           <ul>
             <li><a href="#menu">Menu</a></li>
-          </ul><br><br><ul >
-            <li><a href="#chart">Carrello</a></li>
-          </ul>
+          </ul><br>
 
           
         </nav>
@@ -45,44 +43,7 @@
     </ul>
   </nav>
 
-  <nav id="chart">
-      <h2>Carrello</h2>
-      <[foreach]>
-      <h2><[errore]></h2>
-      <[/foreach]>
-
-									<div class="table-wrapper">
-										<table>
-											<thead>
-												<tr>
-													<th>Nome</th>
-													<th>Taglia</th>
-                          <th>Prezzo</th>
-												</tr>
-											</thead>
-											<tbody>
-											<[foreach]>	<tr>
-                            
-                            <td><[marca]> <[modello]></td>
-                            <td><[taglia]></td>
-                            <td><[prezzo]>&euro;</td>
-												</tr><[/foreach]>
-                      </tbody>
-                      <tfoot>
-                          <tr>
-                            <td colspan="2"></td>
-                            <td><[totale]>&euro;</td>
-                          </tr>
-                        </tfoot>
-                    </table></div>
-                    <div style="float:right;"  >
-                    <div class="col-6 col-12-medium" >
-											<ul class="actions">
-												<li><a href="./chart.php" class="button primary">Ordina / Modifica</a></li>
-											</ul>
-                  </div>
-                </div>
-    </nav>
+  
  </header>
 </div>
 <div style="height:30px"></div>
