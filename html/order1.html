@@ -3,6 +3,7 @@
 
   <!-- Post -->
         <div class="inner">
+        <h1><[errore]></h1>
         <h1>Il tuo Ordine</h1>
         <blockquote>Qui i prodotti che hai stai per comprare.</blockquote>
       </div>
@@ -38,46 +39,56 @@
    
     <section>
       <h2>Inserisci i tuoi dati</h2>
-      <form method="post" action="#">
+      <form method="post" action="./chechout.php?id=102&t=<[totale]>">
         <div class="row gtr-uniform">
           <div class="col-6 col-12-xsmall">
-            <input type="email" name="demo-email" id="demo-email" value="" placeholder="Email" />
+              <input type="text" name="nome" id="nome" value="" placeholder="Nome" />
+          </div>
+            <div class="col-6 col-12-xsmall">
+              <input type="text" name="cognome" id="cognome" value="" placeholder="Cognome" />
+            </div>
+          <div class="col-6 col-12-xsmall">
+            <input type="text" name="username" id="username" value="" placeholder="username" />
           </div>
           <div class="col-6 col-12-xsmall">
-            <input type="password" name="demo-password" id="demo-password" value="" placeholder="password" />
+            <input type="password" name="password" id="password" value="" placeholder="Password" />
           </div>
           <div class="col-12">
-            <input type="text" name="demo-indirizzo" id="indirizzo" placeholder="Indirizzo" />
+            <input type="text" name="indirizzo" id="indirizzo" placeholder="Indirizzo" />
+          </div>
+          <div class="col-6 col-12-xsmall">
+            <input type="text" name="citta" id="citta" value="" placeholder="Città" />
+          </div>
+          <div class="col-6 col-12-xsmall">
+            <input type="text" name="cap" id="cap" value="" placeholder="Cap" />
           </div>
           <div class="col-4 col-12-small">
-            <input type="radio" id="PayPal" name="demo-priority" checked>
+            <input type="radio" id="PayPal" name="payment" checked value="PayPal">
             <label for="PayPal">PayPal</label>
           </div>
           <div class="col-4 col-12-small">
-            <input type="radio" id="Contrassegno" name="demo-priority">
+            <input type="radio" id="Contrassegno" name="payment" value="Contrassegno">
             <label for="Contrassegno">Contrassegno</label>
           </div>
           <div class="col-4 col-12-small">
-            <input type="radio" id="Bonifico" name="demo-priority">
+            <input type="radio" id="Bonifico" name="payment" value="Bonifico">
             <label for="Bonifico">Bonifico</label>
           </div>
           
           
           <div class="col-12">
             <ul class="actions" style="float:right;">
-              <li><input type="submit" value="Send Message" class="primary" /></li>
-              <li><input type="reset" value="Reset" /></li>
+              <li><input type="submit" value="Ordina" class="primary" /></li>
             </ul>
+            <ul class="actions">
+        <li><a href="./index.php" class="button">Continua gli acquisti</a></li>
+      </ul>
           </div>
         </div>
       </form>
     </section>
 
       
-   <ul class="actions" style="float:right;">
-        <li><a href="./order.php" class="button primary">Procedi con l'ordine</a></li>
-        </ul><ul class="actions">
-        <li><a href="index.php" class="button">Continua gli acquisti</a></li>
-      </ul>
+   
 </div>
 </div>

@@ -24,7 +24,11 @@
       $err .= "Errore nel server!";
       $err .= "<br>Premere <a href=\"index.php\">qui</a> per tornare alla home.";
     }
-  }
+    else if($_GET['id'] == "1007") {
+    $err .= "Non hai effettuato nessun ordine!";
+    $err .= "<br>Premere <a href=\"index.php\">qui</a> per tornare alla home.";
+  }}
+  
 
   $body->setContent("errore", $err);
 

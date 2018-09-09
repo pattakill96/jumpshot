@@ -3,6 +3,7 @@
 
   <!-- Post -->
         <div class="inner">
+          <h1><[errore]></h1>
         <h1>Il tuo Ordine</h1>
         <blockquote>Qui i prodotti che hai stai per comprare.</blockquote>
       </div>
@@ -36,13 +37,37 @@
             </table>
     </div>
    
-    </form>
+    <section>
+      <h2>Inserisci il metodo di pagamento</h2>
+      <form method="post" action="./chechout.php?id=101&t=<[totale]>">
+        <div class="row gtr-uniform">
+          <div class="col-4 col-12-small">
+            <input type="radio" id="PayPal" name="payment"  value="PayPal" checked> 
+            <label for="PayPal">PayPal</label>
+          </div>
+          <div class="col-4 col-12-small">
+            <input type="radio" id="Contrassegno" name="payment" value="Contrassegno" >
+            <label for="Contrassegno">Contrassegno</label>
+          </div>
+          <div class="col-4 col-12-small">
+            <input type="radio" id="Bonifico" name="payment" value="Bonifico">
+            <label for="Bonifico">Bonifico</label>
+          </div>
+          
+          
+          <div class="col-12">
+            <ul class="actions" style="float:right;">
+              <li><input type="submit" value="Ordina" class="primary" /></li>
+            </ul>
+            <ul class="actions">
+        <li><a href="./index.php" class="button">Continua gli acquisti</a></li>
+      </ul>
+          </div>
+        </div>
+      </form>
+    </section>
 
       
-   <ul class="actions" style="float:right;">
-        <li><a href="./order.php" class="button primary">Procedi con l'ordine</a></li>
-        </ul><ul class="actions">
-        <li><a href="index.php" class="button">Continua gli acquisti</a></li>
-      </ul>
+   
 </div>
 </div>

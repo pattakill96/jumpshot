@@ -30,6 +30,7 @@
   }
   $add_shoe="UPDATE taglieprodotti SET taglieprodotti.quantita = taglieprodotti.quantita +1  WHERE scarpa = '{$_GET['id']}' AND taglia = '{$_GET['t']}'";
   $db->query($add_shoe);
+  Header('Location: index.php');
   }
 
   if(isset($_SESSION['user'])){
@@ -42,7 +43,8 @@
     $row['errore']="";
     if(!$result) {
     $row['errore']="Non ci sono prodotti nel tuo carrello";
-    exit;}
+    $body->setContent($row);
+    }else{
     $totale=0;
     foreach($result as $row) {
       $row['marca'] = utf8_encode($row['marca']);
@@ -54,7 +56,7 @@
       $body->setContent($row);
     }
     $body->setContent("totale", $totale);
-  }
+  }}
   }
     if(isset($_SESSION['ext'])){
     $utente = $_SESSION['ext']['id'];
@@ -66,8 +68,9 @@
     $result = $db->getResult();
     $row['errore']="";
     if(!$result) {
-    $row['errore']="Non ci sono prodotti nel tuo carrello";
-    exit;}
+    $row['errore']="Non ci sono ordini da te effettuati";
+    $body->setContent($row);
+    }else{
     $totale=0;
     foreach($result as $row) {
       $row['marca'] = utf8_encode($row['marca']);
@@ -80,7 +83,7 @@
     }
     $body->setContent("totale", $totale);
   }
-  }
+  }}
 
   
   if(isset($_SESSION['user'])){
