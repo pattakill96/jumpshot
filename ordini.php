@@ -17,7 +17,6 @@ session_start();
     $dati_utente ="SELECT utenti.* FROM utenti WHERE utenti.id=$utente";
     $db->query($dati_utente);
   if($db->status == "ERROR") {
-    Header('Location: index.php?error=1007');
   } else {
     $result = $db->getResult();
     foreach($result as $row) {

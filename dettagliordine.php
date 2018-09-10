@@ -11,10 +11,21 @@
 session_start();
 
   if(isset($_GET['id']) && (isset($_GET['t']))){
-      if(($_GET['t'])==1)
-      $body = new Template("html/dettagliordine.1.html");
-
+     
      if(isset($_SESSION['user'])){
+      if(($_GET['t'])==1){
+        $spedizione="SELECT spedizione FROM ordinipagati WHERE ordine = '{$_GET['id']}' ";
+        $db->query($spedizione);
+        if($db->status == "ERROR") {
+          Header('Location: index.php?error=1008');
+        } else {
+          $result = $db->getResult();
+          foreach($result as $row) {
+            $spedizione = $row['spedizione'];}
+
+      $body = new Template("html/dettagliordine.1.html");
+    
+      $body->setContent("spedizione", $spedizione);}}
          $order=$_GET['id'];
          $body->setContent("order", $order);
          $utente = $_SESSION['user']['id'];
@@ -73,6 +84,19 @@ session_start();
 
    }}}
 if(isset($_SESSION['ext'])){
+  if(($_GET['t'])==1){
+    $spedizione="SELECT spedizione FROM ordinepagatoext WHERE ordine = '{$_GET['id']}' ";
+    $db->query($spedizione);
+    if($db->status == "ERROR") {
+      Header('Location: index.php?error=1008');
+    } else {
+      $result = $db->getResult();
+      foreach($result as $row) {
+        $spedizione = $row['spedizione'];}
+
+  $body = new Template("html/dettagliordine.1.html");
+
+  $body->setContent("spedizione", $spedizione);}}
     $order=$_GET['id'];
     $body->setContent("order", $order);
     $utente = $_SESSION['ext']['id'];

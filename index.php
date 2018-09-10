@@ -40,7 +40,7 @@
     $query_carr="SELECT prodotti.*,taglia FROM carrello,prodotti WHERE prodotti.id=carrello.prodotto AND carrello.utente=$utente AND carrello.pagato = 0";
     $db->query($query_carr);
   if($db->status == "ERROR") {
-    Header('Location: index.php?error=1008');
+    $row['errore']="Non ci sono prodotti nel tuo carrello";
   } else {
     $result = $db->getResult();
     $row['errore']="";

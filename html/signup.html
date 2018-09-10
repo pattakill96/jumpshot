@@ -1,55 +1,47 @@
 <!-- Main -->
 <div id="main">
 
+    <!-- Post -->
+          
+        <div class="inner">
+        <div class="table-wrapper">
   <!-- Post -->
   <article class="post">
-    <header>
-      <div class="title">
-        <h2><a href="#">Registrati a Jumpshot</a></h2>
-        <p>Le migliori scarpe da basket in Italia!</p>
-      </div>
-    </header>
-    <form method="POST" action="signup.php">
-      <div class="row uniform">
-        <div class="6u 12u$(xsmall)">
-          <input type="text" name="username" id="username" required placeholder="Username" required/>
-        </div>
-        <div class="6u 12u$(xsmall)">
-          <input type="password" name="password" id="password" required placeholder="Password" required/>
-        </div>
-        <div class="6u 12u$(xsmall)">
-          <input type="text" name="nome" id="nome" required placeholder="Nome" required>
-        </div>
-        <div class="6u 12u$(xsmall)">
-          <input type="text" name="cognome" id="cognome" required placeholder="Cognome" required/>
-        </div>
-        <div class="6u 12u$(xsmall)">
-            <input type="text" name="indirizzo" id="indirizzo" required placeholder="Indirizzo" required/>
-          </div>
-        <div class="6u 12u$(xsmall)">
-          <input type="text" name="citta" id="citta" required placeholder="Città" required/>
-        </div>
-        <div class="6u 12u$(xsmall)">
-          <input type="text" name="cap" id="cap" required placeholder="CAP" required/>
-        </div>
-        <div class="6u 12u$(xsmall)">
-            Taglia Scarpe(da 39 a 49): <input type="number" name="taglia" min="39" max="49">
-          </div>
-        <div class="12u$">
-          <ul class="actions" style="display: flex; align-items: center;">
-            <li><input type="submit" value="Invia" /></li>
-            <li><input type="reset" value="Reset" /></li>
-            <li style="height: 30px;">
-              <p style="color: red;">
-                <[errore]>
-              </p>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </form>
-
-    <footer>
-    </footer>
+      <section>
+          <h2>Inserisci i tuoi dati</h2>
+          <form method="post" action="signup.php">
+            <div class="row gtr-uniform">
+              <div class="col-6 col-12-xsmall">
+                  <input type="text" name="nome" id="nome" value="" placeholder="Nome" />
+              </div>
+                <div class="col-6 col-12-xsmall">
+                  <input type="text" name="cognome" id="cognome" value="" placeholder="Cognome" />
+                </div>
+              <div class="col-6 col-12-xsmall">
+                <input type="text" name="username" id="username" value="" placeholder="username" />
+              </div>
+              <div class="col-6 col-12-xsmall">
+                <input type="password" name="password" id="password" value="" placeholder="Password" />
+              </div>
+              <div class="col-12">
+                <input type="text" name="indirizzo" id="indirizzo" placeholder="Indirizzo" />
+              </div>
+              <div class="col-6 col-12-xsmall">
+                <input type="text" name="citta" id="citta" value="" placeholder="Città" />
+              </div>
+              <div class="col-6 col-12-xsmall">
+                <input type="text" name="cap" id="cap" value="" placeholder="Cap" />
+              </div>
+              <div class="col-12">
+                  <ul class="actions">
+                    <li><input type="submit" value="Iscriviti" class="primary" /></li>
+                    <li><input type="reset" value="Reset" /></li>
+                  </ul>
+                </div>
+            </div>
+          </form>
+        </section>
   </article>
+</div>
+</div>
 </div>
