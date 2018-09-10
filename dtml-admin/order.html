@@ -1,0 +1,58 @@
+<!-- Main -->
+<div id="main">
+
+  <!-- Post -->
+        <div class="inner">
+          <h1><[errore]></h1>
+        <h1>Il tuo Ordine</h1>
+        <blockquote>Qui i prodotti che hai stai per comprare.</blockquote>
+      </div>
+      <div class="inner">
+      <div class="table-wrapper">
+        <table class="alt">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Prodotto</th>
+              <th>Taglia</th>
+              <th>Prezzo</th>
+              
+            </tr>
+          </thead>
+          <tbody>
+            <[foreach]>	<tr>
+                  <td> <img style="width:100px;" src="../<[immagine]>" alt="" /></td>
+                  <td style="vertical-align:middle;"><[marca]> <[modello]></td>
+                  <td style="vertical-align:middle;"><[taglia]></td>
+                  <td style="vertical-align:middle;"><[prezzo]>&euro;</td>
+                  
+              </tr><[/foreach]>
+            </tbody>
+            <tfoot>
+                <tr>
+                  <td colspan="3"></td>
+                  <td>Totale<h2><[totale]>&euro;</h2></td>
+                </tr>
+              </tfoot>
+            </table>
+    </div>
+   
+    <section>
+     
+          
+          
+          <div class="col-12">
+            <ul class="actions" style="float:right;">
+              <li><a href="./ordina.php" class="button primary">Ordina</a></li>
+            </ul>
+            <ul class="actions">
+        <li><a href="./fornitore.php" class="button">Continua gli acquisti</a></li>
+      </ul>
+          </div>
+        
+    </section>
+
+      
+   
+</div>
+</div>

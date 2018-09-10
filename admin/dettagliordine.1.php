@@ -8,7 +8,8 @@
   $main = new Template("../dtml-admin/frame-public.html");
   $body = new Template("../dtml-admin/dettagli-ordine.1.html");
   
-
+  $row['id'] = $_SESSION['admin']['username'];
+  $main->setContent($row);
   if(isset($_GET['id']) && isset($_GET['t']) && isset($_GET['u']) ){
     
     if($_GET['t']==1){

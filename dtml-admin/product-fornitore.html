@@ -1,0 +1,43 @@
+<!-- Main -->
+  <div id="main">
+
+    <!-- Post -->
+      <article class="post" >
+        
+        <header>
+          <div class="title">
+            <h2><a href="#"><[titolo]></a></h2>
+          </div>
+        </header>
+        <[errore]>
+        <div style="display:flex;">
+          <img style="width:500px; align-self: flex-start; margin:0 1em 0em 0em;" src="../<[immagine]>" alt="" />
+          <div style="display:flex; flex-direction:column; justify-content:center; margin-left: 2em;">
+            <form method="GET" action="addToCartad.php">
+            <input type="hidden" name="id" value="<[id]>" />
+            <input type="hidden" name="for" value="<[for]>" />
+
+            <h1><[marca]></h1>
+            <h1><[modello]></h1>
+            <h2>Seleziona la taglia da acquistare(10px)</h2>
+            <select name="size">
+              <option value="40">40</option>
+              <option value="41">41</option>
+              <option value="42">42</option>
+              <option value="43">43</option>
+              <option value="44">44</option>
+              <option value="45">45</option>
+              <option value="46">46</option>
+              <option value="47">47</option>
+              <option value="48">48</option>
+              <option value="49">49</option>              
+            </select>
+            
+              <p style="margin-top: .8em; font-size: 20px;"><strong>Prezzo:</strong> &euro;<[prezzo]></p>
+              <button type="submit" class="button small addToCart">Aggiungi al carrello</button></form>
+            </div>
+        </div>
+      
+      </article>
+</form>
+  </div>
