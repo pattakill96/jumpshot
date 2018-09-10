@@ -1,11 +1,58 @@
 <div id="main">
 			<div class="inner">
-				<div style="position:absolute; left:20%;">
-				<h1>Pagina di amministrazione Jumpshot</h1></div>
-			<section class="tiles">
-				
-			</section>
+				<h1>Pagina di amministrazione Jumpshot</h1>
+
+				<hr>
+						<h1>Ordini utenti registrati</h1>
+					
+					  <div class="table-wrapper">
+						<table class="alt">
+						  <thead>
+							<tr>
+							  <th>Id</th>
+							  <th>Destinatario</th>
+							  <th>Indirizzo</th>
+							  <th>Totale</th>
+							  <th>Pagamento</th>
+							  </tr>
+						  </thead>
+						  <tbody>
+							<[foreach]>	<tr id="c<[pagato]>">
+								  <td><a href="dettagliordine.php?id=<[id1]>&t=<[pagato]>&u=1&user=<[id]>"><[id1]></a></td>
+								  <td><[nome]> <[cognome]></td>
+								  <td><[indirizzo]></td>
+								  <td><[totale]>&euro;</td>
+								  <td><[pagamento]></td>                        
+							  </tr><[/foreach]>
+							</tbody>
+							</table>
+			
 	
 		</div>
-	
+		<hr>
+		<h1>Ordini utenti non registrati</h1>
+
+		<div class="table-wrapper">
+				<table class="alt">
+				  <thead>
+					<tr>
+					  <th>Id</th>
+					  <th>Destinatario</th>
+					  <th>Indirizzo</th>
+					  <th>Totale</th>
+					  <th>Pagamento</th>
+					  </tr>
+				  </thead>
+				  <tbody>
+					<[foreach]>	<tr id="c<[pagato1]>">
+						  <td><a href="dettagliordine.1.php?id=<[id2]>&t=<[pagato1]>&u=0"><[id2]></a></td>
+						  <td><[nome1]> <[cognome1]></td>
+						  <td><[indirizzo1]></td>
+						  <td><[totale1]>&euro;</td>
+						  <td><[pagamento1]></td>                        
+					  </tr><[/foreach]>
+					</tbody>
+					</table>
+</div>
+</div>
 </div>

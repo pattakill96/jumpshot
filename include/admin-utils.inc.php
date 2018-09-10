@@ -6,9 +6,10 @@
     // $cartButton = new Template("../themes/default/dtml/button-cart.html");
     // $adminButton = new Template("../themes/default/dtml/button-admin.html");
     // $adminButtonSidebar = new Template("../themes/default/dtml/button-admin-sidebar.html");
-
     $main->setContent("logout", $logoutButton->get());
     $main->setContent("body", $body->get());
+    
+
   }
 
 

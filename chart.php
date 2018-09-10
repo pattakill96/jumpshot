@@ -12,7 +12,7 @@
     $tab = 'carrelloext';}
   if(isset($_SESSION['user'])){
     $utente = $_SESSION['user']['id'];
-    $query_carr="SELECT prodotti.*,taglia FROM carrello,prodotti WHERE prodotti.id=carrello.prodotto AND carrello.utente=$utente";
+    $query_carr="SELECT prodotti.*,taglia FROM carrello,prodotti WHERE prodotti.id=carrello.prodotto AND carrello.utente=$utente AND carrello.pagato=0";
     $tab = 'carrello'; }
   if(isset($_GET['empty'])){
     $query_empty="DELETE FROM $tab WHERE $tab.utente=$utente";
@@ -60,7 +60,7 @@
   }
     if(isset($_SESSION['ext'])){
     $utente = $_SESSION['ext']['id'];
-    $query_carr="SELECT prodotti.*,taglia FROM carrelloext,prodotti WHERE prodotti.id=carrelloext.prodotto AND carrelloext.utente=$utente";
+    $query_carr="SELECT prodotti.*,taglia FROM carrelloext,prodotti WHERE prodotti.id=carrelloext.prodotto AND carrelloext.utente=$utente AND carrelloext.pagato =0";
     $db->query($query_carr);
   if($db->status == "ERROR") {
     Header('Location: index.php?error=1009');

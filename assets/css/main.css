@@ -2404,6 +2404,10 @@ input, select, textarea {
 				color: crimson !important;
 			}
 
+			tr#c1{
+				color: rgb(94, 212, 65) !important;
+			}
+
 			table.alt tbody tr td {
 				border: solid 1px #c9c9c9;
 				border-left-width: 0;

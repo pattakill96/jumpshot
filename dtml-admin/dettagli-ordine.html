@@ -3,7 +3,7 @@
 
         <!-- Post -->
               <div class="inner">
-              <h1>Ordine <[order]></h1>
+              <h1>Ordine <[ord]></h1>
               <h2><[errore]></h2>
             </div>
             <div class="inner">
@@ -20,7 +20,7 @@
                         </thead>
                         <tbody>
                           <[foreach]>	<tr>
-                                <td> <img style="width:100px;" src="<[immagine]>" alt="" /></td>
+                                <td> <img style="width:100px;" src="../<[immagine]>" alt="" /></td>
                                 <td style="vertical-align:middle;"><[marca]> <[modello]></td>
                                 <td style="vertical-align:middle;"><[taglia]></td>
                                 <td style="vertical-align:middle;"><[prezzo]>&euro;</td>
@@ -57,8 +57,8 @@
                   </div>
       
             <ul class="actions">
-              <li><a href="./ordini.php" class="button small">Torna agli ordini</a></li>
-              <li style="float:right"><a href="./pay.php?id=<[order]>&t=<[pay]>" class="button small primary">Paga Adesso</a></li>
+              <li><a href="./admin.php" class="button small">Torna agli ordini</a></li>
+              
             </ul>
       </div>
       </div>

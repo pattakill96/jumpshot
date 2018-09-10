@@ -43,7 +43,7 @@
         Header('Location: index.php?problem');
         }else{
             $change_carr = "UPDATE carrelloext SET pagato = 1, ordine =$app
-               WHERE utente='{$_SESSION['ext']['id']}';";
+               WHERE utente='{$_SESSION['ext']['id']}' AND pagato=0;";
                 $db->query($change_carr);
          Header('Location: ./ordini.php');
         }
@@ -61,7 +61,7 @@
                 Header('Location: index.php?problem');
              }else{
                 $change_carr = "UPDATE carrello SET pagato = 1, ordine =$app
-               WHERE utente='{$_SESSION['user']['id']}';";
+               WHERE utente='{$_SESSION['user']['id']}' AND pagato =0;";
                 $db->query($change_carr);
                  Header('Location:  ./ordini.php');
                 
