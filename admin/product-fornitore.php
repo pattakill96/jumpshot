@@ -1,41 +1,31 @@
 <?php
-
-  require "../include/dbms.inc.php";
-  require "../include/template2.inc.php";
-  require "../include/auth.inc.php";
-  require "../include/admin-utils.inc.php";
-
-  $main = new Template("../dtml-admin/frame-public.html");
-  $body = new Template("../dtml-admin/product-fornitore.html");
-  $row['id'] = $_SESSION['admin']['username'];
-  $main->setContent($row);
-  $for=$_GET['f'];
-  $body->setContent("for",$for);
-if(isset($_GET['id'])) {
-  $product_detail_query = "SELECT DISTINCT prodottifornitore.*, immaginifornitore.immagine
-                          FROM prodottifornitore, immaginifornitore
-                          WHERE prodottifornitore.id = {$_GET['id']} AND immaginifornitore.prodotto = {$_GET['id']}  
-                          ";
-
-  $db->query($product_detail_query);
-
-  if($db->status == "ERROR") {
-print_r($product_detail_query);  } else {
+require "../include/dbms.inc.php";
+require "../include/template2.inc.php";
+require "../include/auth.inc.php";
+require "../include/admin-utils.inc.php";
+$main = new Template("../dtml-admin/frame-public.html");
+$body = new Template("../dtml-admin/ordini.html");
+$query_carr = "SELECT carrellofornitore.*,ordinefornitore.totale,prodottifornitore.*,immaginifornitore.* FROM ordinefornitore, carrellofornitore, prodottifornitore, immaginifornitore WHERE carrellofornitore.ordinato=ordinefornitore.id AND carrellofornitore.prodotto = prodottifornitore.id AND carrellofornitore.prodotto=immaginifornitore.prodotto";
+$db->query($query_carr);
+if ($db->status == "ERROR") {
+    Header('Location: index.php?error=1008');
+} else {
     $result = $db->getResult();
-    if(!$result) Header('Location: error.php?id=1005');
-
-    foreach($result as $row) {
-      $row['id'] = $row['id'];
-      $row['immagine'] = $row['immagine'];
-      $row['marca'] = utf8_encode($row['marca']);
-      $row['modello'] = utf8_encode($row['modello']);
-      $row['prezzo'] = utf8_decode($row['prezzo']);
-      $body->setContent($row);
+    $row['errore'] = "";
+    if (!$result) {
+        $row['errore'] = "Non ci sono ordini da te effettuati";
+        $body->setContent($row);
+    } else {
+        foreach ($result as $row) {
+            $row['marca'] = $row['marca'];
+            $row['modello'] = $row['modello'];
+            $row['taglia'] = $row['taglia'];
+            $row['totale'] = $row['totale'];
+            $row['id'] = $row['id'];
+            $body->setContent($row);
+        }
     }
-  }
 }
-
 adminInject($main, $body);
-
-  $main->close();
+$main->close();
 ?>
