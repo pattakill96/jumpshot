@@ -22,7 +22,7 @@ if ((isset($_GET['id'])) && (isset($_GET['t']))) {
         } else {
             $order_change = "UPDATE ordiniext SET pagato=1 WHERE id= '{$_GET['id']}'";
             $db->query($order_change);
-            Header("Location: ./index.php?order=1");
+            Header("Location: ./index.php?orderext=1");
         }
     }
 }
