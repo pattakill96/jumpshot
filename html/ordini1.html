@@ -1,41 +1,49 @@
 <!-- Main -->
 <div id="main">
 
-        <!-- Post -->
-              <div class="inner">
-              <h1>I tuoi ordini</h1>
-              <h2><[errore]></h2>
-            </div>
-            <div class="inner">
-            <div class="table-wrapper">
-              <table class="alt">
-                <thead>
-                  <tr>
-                    <th>Id</th>
-                    <th>Destinatario</th>
-                    <th>Indirizzo</th>
-                    <th>Totale</th>
-                    <th>Pagamento</th>
-                    </tr>
-                </thead>
-                <tbody>
-                  <[foreach]>	<tr id="c<[pagato]>">
-                        <td><a href="dettagliordine.php?id=<[id]>&t=<[pagato]>"><[id]></a></td>
-                        <td><[nome]> <[cognome]></td>
-                        <td><[indirizzo]> <[citta]></td>
-                        <td><[totale]>&euro;</td>
-                        <td><[pagamento]></td>                        
-                    </tr><[/foreach]>
-                  </tbody>
-                  </table>
-          </div>
-         
-          </form>
-      
-            <ul class="actions">
+  <!-- Post -->
+  <div class="inner">
+    <h1>I tuoi ordini</h1>
+    <h2>
+      <[errore]>
+    </h2>
+  </div>
+  <div class="inner">
+    <div class="table-wrapper">
+      <table class="alt">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Destinatario</th>
+            <th>Indirizzo</th>
+            <th>Totale</th>
+            <th>Pagamento</th>
+          </tr>
+        </thead>
+        <tbody>
+          <[foreach]>
+            <tr id="c<[pagato]>">
+              <td><a href="dettagliordine.php?id=<[id]>&t=<[pagato]>">
+                  <[id]>
+                </a></td>
+              <td>
+                <[nome]>
+                  <[cognome]>
+              </td>
+              <td>
+                <[indirizzo]>
+                  <[citta]>
+              </td>
+              <td>
+                <[totale]>&euro;
+              </td>
+              <td>
+                <[pagamento]>
+              </td>
+            </tr>
+            <[/foreach]> </tbody> </table> </div> </form> <ul class="actions">
               <li><a href="index.php" class="button small">Continua gli acquisti</a></li>
-              
-            </ul>
-      </div>
-      </div>
-      
+
+              </ul>
+    </div>
+  </div>

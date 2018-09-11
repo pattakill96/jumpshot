@@ -18,25 +18,25 @@ if (isset($_GET['empty'])) {
     $query_empty = "DELETE FROM $tab WHERE $tab.utente=$utente";
     $db->query($query_empty);
     if ($db->status == "ERROR") {
-        Header('Location: index.php?error=1009');
+        Header('Location: error.php?id=1005');
     }
-    Header('Location: index.php');
+    Header('Location: index.php?empty=1');
 }
 if (isset($_GET['id'])) {
     $query_empty = "DELETE FROM $tab WHERE $tab.utente=$utente AND $tab.prodotto = '{$_GET['id']}' ";
     $db->query($query_empty);
     if ($db->status == "ERROR") {
-        Header('Location: index.php?error=1009');
+        Header('Location: error.php?id=1005');
     }
     $add_shoe = "UPDATE taglieprodotti SET taglieprodotti.quantita = taglieprodotti.quantita +1  WHERE scarpa = '{$_GET['id']}' AND taglia = '{$_GET['t']}'";
     $db->query($add_shoe);
-    Header('Location: index.php');
+    Header('Location: chart.php');
 }
 if (isset($_SESSION['user'])) {
     $utente = $_SESSION['user']['id'];
     $db->query($query_carr);
     if ($db->status == "ERROR") {
-        Header('Location: index.php?error=1008');
+        Header('Location: error.php?id=1005');
     } else {
         $result = $db->getResult();
         $row['errore'] = "";
@@ -54,7 +54,9 @@ if (isset($_SESSION['user'])) {
                 $totale = number_format($totale + $row['prezzo'], 2, '.', '');
                 $body->setContent($row);
             }
-            $body->setContent("totale", $totale);
+            $body->setContent("totale", $totale);            
+            $orderButton = new Template("html/orderbutton.html");
+            $body->setContent("orderbutton", $orderButton->get());
         }
     }
 }
@@ -63,7 +65,7 @@ if (isset($_SESSION['ext'])) {
     $query_carr = "SELECT prodotti.*,taglia FROM carrelloext,prodotti WHERE prodotti.id=carrelloext.prodotto AND carrelloext.utente=$utente AND carrelloext.pagato =0";
     $db->query($query_carr);
     if ($db->status == "ERROR") {
-        Header('Location: index.php?error=1009');
+        Header('Location: error.php?id=1005');
     } else {
         $result = $db->getResult();
         $row['errore'] = "";
@@ -81,7 +83,9 @@ if (isset($_SESSION['ext'])) {
                 $totale = number_format($totale + $row['prezzo'], 2, '.', '');
                 $body->setContent($row);
             }
-            $body->setContent("totale", $totale);
+            $body->setContent("totale", $totale);            
+            $orderButton = new Template("html/orderbutton.html");
+            $body->setContent("orderbutton", $orderButton->get());
         }
     }
 }

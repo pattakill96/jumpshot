@@ -23,6 +23,10 @@ if (isset($_GET['id'])) {
         $err .= "Non hai effettuato nessun ordine!";
         $err .= "<br>Premere <a href=\"index.php\">qui</a> per tornare alla home.";
     }
+    else if ($_GET['id'] == "1006") {
+        $err .= "Nessun dato presente nel database!";
+        $err .= "<br>Premere <a href=\"index.php\">qui</a> per tornare alla home.";
+    }
 }
 $body->setContent("errore", $err);
 session_start();

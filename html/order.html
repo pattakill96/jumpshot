@@ -2,72 +2,84 @@
 <div id="main">
 
   <!-- Post -->
-        <div class="inner">
-          <h1><[errore]></h1>
-        <h1>Il tuo Ordine</h1>
-        <blockquote>Qui i prodotti che hai stai per comprare.</blockquote>
-      </div>
-      <div class="inner">
-      <div class="table-wrapper">
-        <table class="alt">
-          <thead>
+  <div class="inner">
+    <h1>
+      <[errore]>
+    </h1>
+    <h1>Il tuo Ordine</h1>
+    <blockquote>Qui i prodotti che hai stai per comprare.</blockquote>
+  </div>
+  <div class="inner">
+    <div class="table-wrapper">
+      <table class="alt">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Prodotto</th>
+            <th>Taglia</th>
+            <th>Prezzo</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <[foreach]>
             <tr>
-              <th></th>
-              <th>Prodotto</th>
-              <th>Taglia</th>
-              <th>Prezzo</th>
-              
+              <td> <img style="width:100px;" src="<[immagine]>" alt="" /></td>
+              <td style="vertical-align:middle;">
+                <[marca]>
+                  <[modello]>
+              </td>
+              <td style="vertical-align:middle;">
+                <[taglia]>
+              </td>
+              <td style="vertical-align:middle;">
+                <[prezzo]>&euro;
+              </td>
+
             </tr>
-          </thead>
-          <tbody>
-            <[foreach]>	<tr>
-                  <td> <img style="width:100px;" src="<[immagine]>" alt="" /></td>
-                  <td style="vertical-align:middle;"><[marca]> <[modello]></td>
-                  <td style="vertical-align:middle;"><[taglia]></td>
-                  <td style="vertical-align:middle;"><[prezzo]>&euro;</td>
-                  
-              </tr><[/foreach]>
-            </tbody>
-            <tfoot>
-                <tr>
-                  <td colspan="3"></td>
-                  <td>Totale<h2><[totale]>&euro;</h2></td>
-                </tr>
+            <[/foreach]> </tbody> <tfoot>
+              <tr>
+                <td colspan="3"></td>
+                <td>Totale<h2>
+                    <[totale]>&euro;
+                  </h2>
+                </td>
+              </tr>
               </tfoot>
-            </table>
+      </table>
     </div>
-   
+
     <section>
       <h2>Inserisci il metodo di pagamento</h2>
       <form method="post" action="./chechout.php?id=101&t=<[totale]>">
         <div class="row gtr-uniform">
           <div class="col-4 col-12-small">
-            <input type="radio" id="PayPal" name="payment"  value="PayPal" checked> 
+            <input type="radio" id="PayPal" name="payment" value="PayPal" checked>
             <label for="PayPal">PayPal</label>
           </div>
           <div class="col-4 col-12-small">
-            <input type="radio" id="Contrassegno" name="payment" value="Contrassegno" >
+            <input type="radio" id="Contrassegno" name="payment" value="Contrassegno">
             <label for="Contrassegno">Contrassegno</label>
           </div>
           <div class="col-4 col-12-small">
             <input type="radio" id="Bonifico" name="payment" value="Bonifico">
             <label for="Bonifico">Bonifico</label>
           </div>
-          
-          
+
+
           <div class="col-12">
             <ul class="actions" style="float:right;">
               <li><input type="submit" value="Ordina" class="primary" /></li>
             </ul>
             <ul class="actions">
-        <li><a href="./index.php" class="button">Continua gli acquisti</a></li>
-      </ul>
+              <li><a href="./index.php" class="button">Continua gli acquisti</a></li>
+            </ul>
           </div>
         </div>
       </form>
     </section>
 
-      
-   
-</div>
+
+
+  </div>
 </div>

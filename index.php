@@ -9,11 +9,11 @@ $query_prod = "SELECT DISTINCT prodotti.*, immagini.immagine
                  WHERE prodotti.id = immagini.prodotto";
 $db->query($query_prod);
 if ($db->status == "ERROR") {
-    Header('Location: index.php?error=1006');
+    Header('Location: error.php?id=1005');
 } else {
     $result = $db->getResult();
     if (!$result)
-        Header('Location: index.php?error=1007');
+        Header('Location: error.php?id=1005');
     foreach ($result as $row) {
         $row['tipo'] = "style1";
         if ($row['tipologia'] == "Basket")
@@ -58,7 +58,7 @@ if (isset($_SESSION['ext'])) {
     $query_carr = "SELECT prodotti.*,taglia FROM carrelloext,prodotti WHERE prodotti.id=carrelloext.prodotto AND carrelloext.utente=$utente AND carrelloext.pagato = 0";
     $db->query($query_carr);
     if ($db->status == "ERROR") {
-        Header('Location: index.php?error=1009');
+        Header('Location: error.php?id=1005');
     } else {
         $result = $db->getResult();
         $row['errore'] = "";
@@ -79,6 +79,12 @@ if (isset($_SESSION['ext'])) {
         }
     }
 }
+if (isset($_GET['news'])) 
+    $body->setContent("news", "Il messaggio è stato ricevuto dai nostri server");
+    if (isset($_GET['carr'])) 
+    $body->setContent("news", "Il prodotto è stato aggiunto al carrello");
+    if (isset($_GET['empty'])) 
+    $body->setContent("news", "Il carrello è stato svuotato");
 if (isset($_GET['logout'])) {
     session_unset();
     Header("Location: ./index.php");

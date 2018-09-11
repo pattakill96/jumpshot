@@ -1,40 +1,43 @@
 <!-- Main -->
 <div id="main">
 
-        <!-- Post -->
-              <div class="inner">
-              <h1>I tuoi ordini</h1>
-            </div>
-            <div class="inner">
-            <div class="table-wrapper">
-              <table class="alt">
-                <thead>
-                  <tr>
-                    <th></th>
-                    <th>Id</th>
-                    <th>Prodotto</th>
-                    <th>Taglia</th>
-                    <th>Totale</th>
-                    </tr>
-                </thead>
-                <tbody>
-                  <[foreach]>	<tr id="c<[pagato]>">
-                      <td> <img style="width:100px;" src="../<[immagine]>" alt="" /></td>
-                      <td style="vertical-align:middle;"><[id]></td>
-                      <td style="vertical-align:middle;"><[marca]> <[modello]></td>
-                      <td style="vertical-align:middle;"><[taglia]></td>
-                      <td style="vertical-align:middle;"><[totale]>&euro;</td>                   
-                    </tr><[/foreach]>
-                  </tbody>
-                  </table>
-          </div>
-         
-          </form>
-      
-            <ul class="actions">
+  <!-- Post -->
+  <div class="inner">
+    <h1>I tuoi ordini</h1>
+  </div>
+  <div class="inner">
+    <div class="table-wrapper">
+      <table class="alt">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Id</th>
+            <th>Prodotto</th>
+            <th>Taglia</th>
+            <th>Totale</th>
+          </tr>
+        </thead>
+        <tbody>
+          <[foreach]>
+            <tr id="c<[pagato]>">
+              <td> <img style="width:100px;" src="../<[immagine]>" alt="" /></td>
+              <td style="vertical-align:middle;">
+                <[id]>
+              </td>
+              <td style="vertical-align:middle;">
+                <[marca]>
+                  <[modello]>
+              </td>
+              <td style="vertical-align:middle;">
+                <[taglia]>
+              </td>
+              <td style="vertical-align:middle;">
+                <[totale]>&euro;
+              </td>
+            </tr>
+            <[/foreach]> </tbody> </table> </div> </form> <ul class="actions">
               <li><a href="./admin.php" class="button small">Continua gli acquisti</a></li>
-              
-            </ul>
-      </div>
-      </div>
-      
+
+              </ul>
+    </div>
+  </div>

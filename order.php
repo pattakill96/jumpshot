@@ -16,7 +16,7 @@ if (isset($_SESSION['user'])) {
     $query_carr1 = "SELECT DISTINCT prodotti.*,taglia,immagini.immagine FROM carrello,prodotti,immagini WHERE prodotti.id=carrello.prodotto AND carrello.utente=$utente AND prodotti.id = immagini.prodotto AND carrello.pagato =0";
     $db->query($query_carr1);
     if ($db->status == "ERROR") {
-        Header('Location: index.php?error=1008');
+        Header('Location: error.php?id=1005');
     } else {
         $result = $db->getResult();
         $row['errore'] = "";
@@ -43,7 +43,7 @@ if (isset($_SESSION['ext'])) {
     $query_carr = "SELECT DISTINCT prodotti.*,taglia,immagini.immagine FROM carrelloext,prodotti,immagini  WHERE prodotti.id=carrelloext.prodotto AND carrelloext.utente=$utente AND prodotti.id = immagini.prodotto AND carrelloext.pagato =0";
     $db->query($query_carr);
     if ($db->status == "ERROR") {
-        Header('Location: index.php?error=1009');
+        Header('Location: error.php?id=1005');
     } else {
         $result = $db->getResult();
         $row['errore'] = "";

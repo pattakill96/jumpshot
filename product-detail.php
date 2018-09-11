@@ -28,3 +28,10 @@ if (isset($_GET['id'])) {
         }
     }
 }
+session_start();
+if (!isset($_SESSION['user']))
+    inject(FALSE, $main, $body, $db);
+else
+    inject(TRUE, $main, $body, $db, FALSE);
+$main->close();
+?>

@@ -34,7 +34,7 @@ if (isset($_GET['error'])) {
                                     '{$_POST['payment']}');";
             $db->query($add_to_order1);
             if ($db->status == "ERROR") {
-                Header('Location: index.php?problem');
+                Header('Location: error.php?id=1005');
             } else {
                 $change_carr = "UPDATE carrelloext SET pagato = 1, ordine =$app
                WHERE utente='{$_SESSION['ext']['id']}' AND pagato=0;";
@@ -51,7 +51,7 @@ if (isset($_GET['error'])) {
                                             VALUES ($app,'{$_SESSION['user']['id']}','{$_GET['t']}','{$_POST['payment']}');";
             $db->query($add_to_order);
             if ($db->status == "ERROR") {
-                Header('Location: index.php?problem');
+                Header('Location: error.php?id=1005');
             } else {
                 $change_carr = "UPDATE carrello SET pagato = 1, ordine =$app
                WHERE utente='{$_SESSION['user']['id']}' AND pagato =0;";

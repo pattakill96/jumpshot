@@ -10,11 +10,11 @@ $query_prod = "SELECT DISTINCT prodotti.*, immagini.immagine
                 WHERE prodotti.id = immagini.prodotto AND prodotti.tipologia = '{$app}'";
 $db->query($query_prod);
 if ($db->status == "ERROR") {
-    Header('Location: index.php?error=1006');
+    Header('Location: error.php?id=1005');
 } else {
     $result = $db->getResult();
     if (!$result)
-        Header('Location: index.php?error=1007');
+        Header('Location: error.php?id=1007');
     foreach ($result as $row) {
         $row['tipo'] = "style1";
         if ($row['tipologia'] == "Basket")

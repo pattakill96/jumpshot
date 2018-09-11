@@ -1,24 +1,31 @@
 <div id="main">
-			<div class="inner">
-				<p>Benvenuto su jumpshot, il sito per tutti di appassionati di basket e non solo.
-					 Scorrendo i nostri prodotti se seranno coperti di <strong ><a id="blue" class="top" href="basket.php">Blu</a></strong> saranno 
-					 scarpe da basket, se saranno coperti di <strong id="red" style="color:aqua"><a href="sneaker.php">Rosso</a></strong> saranno sneaker per uscire.</p>
-			<section class="tiles">
-				<[foreach]>
+	<div class="inner">
+		<div style="border-radius: 50px 20px;text-align:center;color: rgb(22, 22, 21);background-color: rgb(196, 192, 192);width:100%px; margin:0 auto;">
+			<[news]>
+		</div>
+		<div style="height:30px"></div>
+		<p>Benvenuto su jumpshot, il sito per tutti di appassionati di basket e non solo.
+			Scorrendo i nostri prodotti se seranno coperti di <strong><a id="blue" class="top" href="basket.php">Blu</a></strong>
+			saranno
+			scarpe da basket, se saranno coperti di <strong id="red" style="color:aqua"><a href="sneaker.php">Rosso</a></strong>
+			saranno sneaker per uscire.</p>
+
+		<section class="tiles">
+			<[foreach]>
 				<article class="<[tipo]>">
 					<span class="image">
 						<img src="<[immagine]>" alt="" />
 					</span>
 					<a href="product-detail.php?id=<[id]>">
-						<h1><[prezzo]> &euro;</h1>
+						<h1>
+							<[prezzo]> &euro;
+						</h1>
 						<div class="content">
-							<h2><[marca]>  <[modello]></h2>
+							<h2>
+								<[marca]>
+									<[modello]>
+							</h2>
 						</div>
 					</a>
 				</article>
-				<[/foreach]>
-			</section>
-	
-		</div>
-	
-</div>
+				<[/foreach]> </section> </div> </div>

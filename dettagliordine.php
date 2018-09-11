@@ -11,7 +11,7 @@ if (isset($_GET['id']) && (isset($_GET['t']))) {
             $spedizione = "SELECT spedizione FROM ordinipagati WHERE ordine = '{$_GET['id']}' ";
             $db->query($spedizione);
             if ($db->status == "ERROR") {
-                Header('Location: index.php?error=1008');
+                Header('Location: error.php?id=1005');
             } else {
                 $result = $db->getResult();
                 foreach ($result as $row) {
@@ -27,7 +27,7 @@ if (isset($_GET['id']) && (isset($_GET['t']))) {
         $query_carr1 = "SELECT DISTINCT prodotti.*,taglia,immagini.immagine FROM carrello,prodotti,immagini WHERE prodotti.id=carrello.prodotto AND carrello.utente=$utente AND prodotti.id = immagini.prodotto AND carrello.ordine = '{$_GET['id']}'";
         $db->query($query_carr1);
         if ($db->status == "ERROR") {
-            Header('Location: index.php?error=1008');
+            Header('Location: error.php?id=1005');
         } else {
             $result = $db->getResult();
             $row['errore'] = "";
@@ -50,7 +50,7 @@ if (isset($_GET['id']) && (isset($_GET['t']))) {
         $query_user = "SELECT utenti.* FROM utenti WHERE utenti.id=$utente";
         $db->query($query_user);
         if ($db->status == "ERROR") {
-            Header('Location: index.php?error=1008');
+            Header('Location: error.php?id=1005');
         } else {
             $result = $db->getResult();
             if ($result) {
@@ -66,7 +66,7 @@ if (isset($_GET['id']) && (isset($_GET['t']))) {
         $query_pay = "SELECT ordini.pagamento FROM ordini WHERE ordini.id='{$_GET['id']}'";
         $db->query($query_pay);
         if ($db->status == "ERROR") {
-            Header('Location: index.php?error=1008');
+            Header('Location: error.php?id=1005');
         } else {
             $result = $db->getResult();
             if ($result) {
@@ -83,7 +83,7 @@ if (isset($_GET['id']) && (isset($_GET['t']))) {
             $spedizione = "SELECT spedizione FROM ordinepagatoext WHERE ordine = '{$_GET['id']}' ";
             $db->query($spedizione);
             if ($db->status == "ERROR") {
-                Header('Location: index.php?error=1008');
+                Header('LLocation: error.php?id=1005');
             } else {
                 $result = $db->getResult();
                 foreach ($result as $row) {
@@ -99,7 +99,7 @@ if (isset($_GET['id']) && (isset($_GET['t']))) {
         $query_carr1 = "SELECT DISTINCT prodotti.*,taglia,immagini.immagine FROM carrelloext,prodotti,immagini WHERE prodotti.id=carrelloext.prodotto AND carrelloext.utente=$utente AND prodotti.id = immagini.prodotto AND carrelloext.ordine = '{$_GET['id']}'";
         $db->query($query_carr1);
         if ($db->status == "ERROR") {
-            Header('Location: index.php?error=1008');
+            Header('Location: error.php?id=1005');
         } else {
             $result = $db->getResult();
             $row['errore'] = "";
@@ -122,7 +122,7 @@ if (isset($_GET['id']) && (isset($_GET['t']))) {
         $query_pay = "SELECT ordiniext.* FROM ordiniext WHERE ordiniext.id='{$_GET['id']}'";
         $db->query($query_pay);
         if ($db->status == "ERROR") {
-            Header('Location: index.php?error=1008');
+            Header('Location: error.php?id=1005');
         } else {
             $result = $db->getResult();
             if ($result) {

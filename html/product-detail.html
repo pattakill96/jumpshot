@@ -1,33 +1,42 @@
 <!-- Main -->
-  <div id="main">
+<div id="main">
 
     <!-- Post -->
-      <article class="post" >
-        
+    <article class="post">
+
         <header>
-          <div class="title">
-            <h2><a href="#"><[titolo]></a></h2>
-          </div>
+            <div class="title">
+                <h2><a href="#">
+                        <[titolo]>
+                    </a></h2>
+            </div>
         </header>
         <[errore]>
-        <div style="display:flex;">
-          <img style="width:500px; align-self: flex-start; margin:0 1em 0em 0em;" src="<[immagine]>" alt="" />
-          <div style="display:flex; flex-direction:column; justify-content:center; margin-left: 2em;">
-            <form method="GET" action="addToCart.php">
-            <input type="hidden" name="id" value="<[id]>" />
-            <h1><[marca]></h1>
-            <h1><[modello]></h1>
-            <select name="size">
-              <[foreach]>
-              <option value="<[taglia]>"><[taglia]></option>
-              <[/foreach]>
-            </select>
-            
-              <p style="margin-top: .8em; font-size: 20px;"><strong>Prezzo:</strong> &euro;<[prezzo]></p>
-              <button type="submit" class="button small addToCart">Aggiungi al carrello</button></form>
+            <div style="display:flex;margin-left: 8em;">
+                <img style="width:500px; align-self: flex-start; margin:0 1em 0em 0em;" src="<[immagine]>" alt="" />
+                <div style="display:flex; flex-direction:column; justify-content:center; margin-left: 8em;">
+                    <form method="GET" action="addToCart.php">
+                        <input type="hidden" name="id" value="<[id]>" />
+                        <h1>
+                            <[marca]>
+                        </h1>
+                        <h1>
+                            <[modello]>
+                        </h1>
+                        <select name="size">
+                            <[foreach]>
+                                <option value="<[taglia]>">
+                                    <[taglia]>
+                                </option>
+                                <[/foreach]> </select> <p style="margin-top: .8em; font-size: 20px;"><strong>Prezzo:</strong>
+                                    &euro;
+                                    <[prezzo]>
+                                        </p>
+                                        <button type="submit" class="button small addToCart">Aggiungi al carrello</button>
+                    </form>
+                </div>
             </div>
-        </div>
-      
-      </article>
-</form>
-  </div>
+
+    </article>
+    </form>
+</div>
