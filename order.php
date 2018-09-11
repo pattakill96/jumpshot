@@ -65,7 +65,7 @@ if (isset($_SESSION['ext'])) {
         $body1->setContent("totale", $totale);
         $app=rand();
         $set_token = "UPDATE utentiext SET token=$app WHERE id = $utente  ";
-        $db->query($query_carr);
+        $db->query($set_token);
     if ($db->status == "ERROR") {
         Header('Location: error.php?id=1005');
     }
