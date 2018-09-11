@@ -8,7 +8,7 @@ $body = new Template("../dtml-admin/ordini.html");
 $query_carr = "SELECT carrellofornitore.*,ordinefornitore.totale,prodottifornitore.*,immaginifornitore.* FROM ordinefornitore, carrellofornitore, prodottifornitore, immaginifornitore WHERE carrellofornitore.ordinato=ordinefornitore.id AND carrellofornitore.prodotto = prodottifornitore.id AND carrellofornitore.prodotto=immaginifornitore.prodotto";
 $db->query($query_carr);
 if ($db->status == "ERROR") {
-    Header('Location: index.php?error=1008');
+    Header('Location: error.php?id=1005');
 } else {
     $result = $db->getResult();
     $row['errore'] = "";

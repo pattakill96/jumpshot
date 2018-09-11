@@ -10,7 +10,7 @@ $query_carr1 = "SELECT DISTINCT prodottifornitore.*,taglia,immaginifornitore.imm
     WHERE prodottifornitore.id=carrellofornitore.prodotto  AND prodottifornitore.id = immaginifornitore.prodotto AND carrellofornitore.ordinato =0";
 $db->query($query_carr1);
 if ($db->status == "ERROR") {
-    Header('Location: index.php?error=1008');
+    Header('Location: error.php?id=1005');
 } else {
     $result = $db->getResult();
     $row['errore'] = "";

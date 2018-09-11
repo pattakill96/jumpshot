@@ -19,7 +19,7 @@ if (isset($_GET['id']) && isset($_GET['t']) && isset($_GET['u'])) {
         $query_carr1 = "SELECT DISTINCT prodotti.*,taglia,immagini.immagine FROM carrelloext,prodotti,immagini WHERE prodotti.id=carrelloext.prodotto  AND prodotti.id = immagini.prodotto AND carrelloext.ordine = '{$_GET['id']}'";
         $db->query($query_carr1);
         if ($db->status == "ERROR") {
-            Header('Location: index.php?error=1008');
+            Header('error.php?id=1005');
         } else {
             $result = $db->getResult();
             $row['errore'] = "";
@@ -42,7 +42,7 @@ if (isset($_GET['id']) && isset($_GET['t']) && isset($_GET['u'])) {
         $query_pay = "SELECT ordiniext.* FROM ordiniext WHERE ordiniext.id='{$_GET['id']}'";
         $db->query($query_pay);
         if ($db->status == "ERROR") {
-            Header('Location: index.php?error=1008');
+            Header('error.php?id=1005');
         } else {
             $result = $db->getResult();
             if ($result) {

@@ -9,21 +9,21 @@ if (isset($_GET['empty'])) {
     $query_empty = "DELETE FROM carrellofornitore WHERE carrellofornitore.pagato=0";
     $db->query($query_empty);
     if ($db->status == "ERROR") {
-        Header('Location: index.php?error=1009');
+        Header('Location: error.php?id=1005');
     }
-    Header('Location: index.php');
+    Header('Location: admin.php?carr=1');
 }
 if (isset($_GET['id'])) {
     $query_empty = "DELETE FROM carrellofornitore WHERE carrellofornitore.prodotto = '{$_GET['id']}' ";
     $db->query($query_empty);
     if ($db->status == "ERROR") {
-        Header('Location: index.php?error=1009');
+        Header('Location: error.php?id=1005');
     }
 }
 $query_carr = "SELECT prodottifornitore.*,taglia FROM carrellofornitore,prodottifornitore WHERE prodottifornitore.id=carrellofornitore.prodotto  AND carrellofornitore.ordinato =0";
 $db->query($query_carr);
 if ($db->status == "ERROR") {
-    Header('Location: index.php?error=1009');
+    Header('Location: error.php?id=1005');
 } else {
     $result = $db->getResult();
     $row['errore'] = "";
@@ -42,6 +42,9 @@ if ($db->status == "ERROR") {
             $body->setContent($row);
         }
         $body->setContent("totale", $totale * 10);
+        $body->setContent("totale", $totale);            
+        $orderButton = new Template("dtml-admin/orderbutton.html");
+        $body->setContent("orderbutton", $orderButton->get());
     }
 }
 adminInject($main, $body);

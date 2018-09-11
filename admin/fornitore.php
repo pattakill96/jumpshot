@@ -9,12 +9,12 @@ $app = 0;
 $fornitore_query = "SELECT * FROM fornitore";
 $db->query($fornitore_query);
 if ($db->status == "ERROR") {
-    Header('Location: index.php?error=1008');
+    Header('Location: error.php?id=1005');
 } else {
     $result = $db->getResult();
     $row['errore'] = "";
     if (!$result) {
-        Header('Location: index.php?error=1008');
+        Header('Location: error.php?id=1005');
     } else {
         foreach ($result as $row) {
             $app = $row['id'];
@@ -29,11 +29,11 @@ FROM prodottifornitore, immaginifornitore
 WHERE prodottifornitore.id = immaginifornitore.prodotto";
 $db->query($query_prod);
 if ($db->status == "ERROR") {
-    Header('Location: index.php?error=1006');
+    Header('Location: error.php?id=1005');
 } else {
     $result = $db->getResult();
     if (!$result)
-        Header('Location: index.php?error=1007');
+        Header('Location: error.php?id=1005');
     foreach ($result as $row1) {
         $row1['id3'] = $app;
         $row1['marca'] = utf8_encode($row1['marca']);

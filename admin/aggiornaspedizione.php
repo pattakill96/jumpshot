@@ -7,7 +7,7 @@ if (isset($_GET['id']) && isset($_POST['spedizione'])) {
     $set_spedizione = "UPDATE ordinepagatoext SET spedizione = '{$_POST['spedizione']}' WHERE ordine='{$_GET['id']}'";
     $db->query($set_spedizione);
     if ($db->status == "ERROR") {
-        Header('Location: index.php?error=1008');
+        Header('Location: error.php?id=1005');
     } else {
         Header('Location: admin.php');
     }

@@ -52,6 +52,8 @@ if ($db->status == "ERROR") {
         }
     }
 }
+if (isset($_GET['carr'])) 
+    $body->setContent("news", "Il carrello è stato svuotato");
 adminInject($main, $body);
 $main->close();
 ?>

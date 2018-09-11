@@ -8,12 +8,11 @@ if ((isset($_GET['id'])) && (isset($_GET['size']))) {
                                     VALUES ('{$_GET['for']}','{$_GET['id']}','{$_GET['size']}');";
     $db->query($add_to_cart_query);
     if ($db->status == "ERROR") {
-        print_r($add_to_cart_query);
-        //Header('Location: index.php?problem');
+        Header('Location: error.php?id=1005');
     } else {
         Header('Location: carrello.php');
     }
 } else {
-    Header('Location: index.php?errore_inserimento_db');
+    Header('Location: error.php?id=1005');
 }
 ?>
