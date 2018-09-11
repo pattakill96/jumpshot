@@ -15,7 +15,7 @@ if (isset($_SESSION['user'])) {
     $tab = 'carrello';
 }
 if (isset($_GET['empty'])) {
-    $query_empty = "DELETE FROM $tab WHERE $tab.utente=$utente";
+    $query_empty = "DELETE FROM $tab WHERE $tab.utente=$utente AND pagato =0 ";
     $db->query($query_empty);
     if ($db->status == "ERROR") {
         Header('Location: error.php?id=1005');

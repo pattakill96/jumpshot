@@ -24,7 +24,6 @@ if (isset($_GET['id']) && isset($_GET['t']) && isset($_GET['u']) && isset($_GET[
             $row['errore'] = "";
             if (!$result) {
                 $row['errore'] = "Non ci sono prodotti nel tuo carrello";
-                exit;
             }
             $totale = 0;
             foreach ($result as $row) {
@@ -82,7 +81,6 @@ if (isset($_GET['id']) && isset($_GET['t']) && isset($_GET['u']) && isset($_GET[
             $row['errore'] = "";
             if (!$result) {
                 $row['errore'] = "Non ci sono prodotti nel tuo carrello";
-                exit;
             }
             $totale = 0;
             foreach ($result as $row) {

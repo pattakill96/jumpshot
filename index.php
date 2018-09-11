@@ -83,6 +83,8 @@ if (isset($_GET['news']))
     $body->setContent("news", "Il messaggio è stato ricevuto dai nostri server");
     if (isset($_GET['carr'])) 
     $body->setContent("news", "Il prodotto è stato aggiunto al carrello");
+    if (isset($_GET['order'])) 
+    $body->setContent("news", "Hai pagato il tuo ordine. A breve riceverai una mail");
     if (isset($_GET['empty'])) 
     $body->setContent("news", "Il carrello è stato svuotato");
 if (isset($_GET['logout'])) {
