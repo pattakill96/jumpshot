@@ -5,6 +5,8 @@ require "../include/auth.inc.php";
 require "../include/admin-utils.inc.php";
 $main = new Template("../dtml-admin/frame-public.html");
 $body = new Template("../dtml-admin/ordini.html");
+$row['id'] = $_SESSION['admin']['username'];
+$main->setContent($row);
 $query_carr = "SELECT carrellofornitore.*,ordinefornitore.totale,prodottifornitore.*,immaginifornitore.* FROM ordinefornitore, carrellofornitore, prodottifornitore, immaginifornitore WHERE carrellofornitore.ordinato=ordinefornitore.id AND carrellofornitore.prodotto = prodottifornitore.id AND carrellofornitore.prodotto=immaginifornitore.prodotto";
 $db->query($query_carr);
 if ($db->status == "ERROR") {

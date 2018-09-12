@@ -3,6 +3,8 @@ require "../include/dbms.inc.php";
 require "../include/template2.inc.php";
 require "../include/auth.inc.php";
 require "../include/admin-utils.inc.php";
+$row['id'] = $_SESSION['admin']['username'];
+$main->setContent($row);
 $query_carr1 = "SELECT SUM(prodottifornitore.prezzo)as tot,taglia, prodottifornitore.id  FROM prodottifornitore,carrellofornitore WHERE prodottifornitore.id=carrellofornitore.prodotto AND carrellofornitore.ordinato=0";
 $db->query($query_carr1);
 if ($db->status == "ERROR") {

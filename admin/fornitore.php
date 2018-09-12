@@ -5,6 +5,8 @@ require "../include/auth.inc.php";
 require "../include/admin-utils.inc.php";
 $main = new Template("../dtml-admin/frame-public.html");
 $body = new Template("../dtml-admin/fornitore.html");
+$row['id'] = $_SESSION['admin']['username'];
+$main->setContent($row);
 $app = 0;
 $fornitore_query = "SELECT * FROM fornitore";
 $db->query($fornitore_query);

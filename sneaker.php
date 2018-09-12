@@ -5,9 +5,9 @@ require "include/utils.inc.php";
 $main = new Template("html/frame-public.html");
 $body = new Template("html/index.html");
 $app = "Sneaker";
-$query_prod = "SELECT DISTINCT prodotti.*, immagini.immagine
-                 FROM prodotti, immagini
-                WHERE prodotti.id = immagini.prodotto AND prodotti.tipologia = '{$app}'";
+$query_prod = "SELECT DISTINCT prodotti.*, immagini.immagine,tipologia.nome
+                FROM prodotti, immagini,tipologia
+                 WHERE prodotti.id = immagini.prodotto AND prodotti.tipologia=tipologia.id AND tipologia.nome = '{$app}'";
 $db->query($query_prod);
 if ($db->status == "ERROR") {
     Header('Location: error.php?id=1005');
@@ -17,8 +17,6 @@ if ($db->status == "ERROR") {
         Header('Location: index.php?error=1007');
     foreach ($result as $row) {
         $row['tipo'] = "style1";
-        if ($row['tipologia'] == "Basket")
-            $row['tipo'] = "style2";
         $row['marca'] = utf8_encode($row['marca']);
         $row['modello'] = $row['modello'];
         $row['prezzo'] = $row['prezzo'];

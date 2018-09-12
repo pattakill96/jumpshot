@@ -4,19 +4,19 @@ require "include/template2.inc.php";
 require "include/utils.inc.php";
 $main = new Template("html/frame-public.html");
 $body = new Template("html/index.html");
-$query_prod = "SELECT DISTINCT prodotti.*, immagini.immagine
-                 FROM prodotti, immagini
-                 WHERE prodotti.id = immagini.prodotto";
+$query_prod = "SELECT DISTINCT prodotti.*, immagini.immagine,tipologia.nome
+                 FROM prodotti, immagini,tipologia
+                 WHERE prodotti.id = immagini.prodotto AND tipologia.id = prodotti.tipologia ORDER BY prodotti.id";
 $db->query($query_prod);
 if ($db->status == "ERROR") {
     Header('Location: error.php?id=1005');
 } else {
     $result = $db->getResult();
     if (!$result)
-        Header('Location: error.php?id=1005');
+        Header('Location: error.php?id=1006');
     foreach ($result as $row) {
         $row['tipo'] = "style1";
-        if ($row['tipologia'] == "Basket")
+        if ($row['nome'] == "Basket")
             $row['tipo'] = "style2";
         $row['marca'] = utf8_encode($row['marca']);
         $row['modello'] = $row['modello'];

@@ -5,6 +5,8 @@ require "../include/auth.inc.php";
 require "../include/admin-utils.inc.php";
 $main = new Template("../dtml-admin/frame-public.html");
 $body = new Template("../dtml-admin/order.html");
+$row['id'] = $_SESSION['admin']['username'];
+$main->setContent($row);
 $query_carr1 = "SELECT DISTINCT prodottifornitore.*,taglia,immaginifornitore.immagine 
     FROM carrellofornitore,prodottifornitore,immaginifornitore 
     WHERE prodottifornitore.id=carrellofornitore.prodotto  AND prodottifornitore.id = immaginifornitore.prodotto AND carrellofornitore.ordinato =0";

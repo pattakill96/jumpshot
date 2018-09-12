@@ -3,6 +3,8 @@ require "../include/dbms.inc.php";
 require "../include/template2.inc.php";
 require "../include/auth.inc.php";
 require "../include/admin-utils.inc.php";
+$row['id'] = $_SESSION['admin']['username'];
+$main->setContent($row);
 if ((isset($_GET['id'])) && (isset($_GET['size']))) {
     $add_to_cart_query = "INSERT INTO carrellofornitore (fornitore,prodotto,taglia)
                                     VALUES ('{$_GET['for']}','{$_GET['id']}','{$_GET['size']}');";

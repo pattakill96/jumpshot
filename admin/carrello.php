@@ -5,6 +5,8 @@ require "../include/auth.inc.php";
 require "../include/admin-utils.inc.php";
 $main = new Template("../dtml-admin/frame-public.html");
 $body = new Template("../dtml-admin/carrello.html");
+$row['id'] = $_SESSION['admin']['username'];
+$main->setContent($row);
 if (isset($_GET['empty'])) {
     $query_empty = "DELETE FROM carrellofornitore WHERE carrellofornitore.pagato=0";
     $db->query($query_empty);
