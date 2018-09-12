@@ -1,0 +1,42 @@
+<!-- Main -->
+<div id="main">
+<div class="inner">  <!-- Post -->
+  <article class="post">
+
+    <header>
+      <div class="title">
+        <h2><a href="#">
+            <[titolo]>
+          </a></h2>
+      </div>
+    </header>
+    <[errore]>
+      <div style="display:flex;margin-left: 30%;">
+        <img style="width:500px; align-self: flex-start; margin:0 1em 0em 0em;" src="../<[immagine]>" alt="" />
+        </div>
+          <form method="POST" action="modifica.php" enctype="multipart/form-data">
+            
+            <input type="hidden" name="id" value="<[id]>" />
+
+              <div class="row gtr-uniform">
+                  <div class="col-3 col-12-xsmall">
+                    <input type="text" name="marca" id="marca" value="<[marca]>" />
+                  </div>
+                  <div class="col-3 col-12-xsmall">
+                    <input type="text" name="modello" id="modello" value="<[modello]>" />
+                  </div>
+                  <div class="col-3 col-12-xsmall">
+                      <input type="text" name="prezzo" id="prezzo" value="<[prezzo]>" />
+                    </div>
+                    <div class="col-3 col-12-xsmall">
+                        <input type="file" name="image" id="image"  />
+                      </div>
+                </div>
+                <div style="margin-top: 20px;margin-left: 40%">
+                    <button type="submit" class="button small addToCart">Modifica prodotto</button></div>
+          </form>
+          
+      
+  </article></div>
+  
+</div>

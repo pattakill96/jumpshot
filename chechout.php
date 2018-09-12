@@ -50,7 +50,7 @@ if (isset($_GET['error'])) {
             $add_to_order = "INSERT INTO ordini (id,utente,totale,pagamento)
                                             VALUES ($app,'{$_SESSION['user']['id']}','{$_GET['t']}','{$_POST['payment']}');";
             $db->query($add_to_order);
-            if ($db->status == "ERROR") {
+            if ($db->status == "ERROR") {                
                 Header('Location: error.php?id=1005');
             } else {
                 $change_carr = "UPDATE carrello SET pagato = 1, ordine =$app

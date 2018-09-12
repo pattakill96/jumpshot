@@ -3,9 +3,8 @@ require "../include/dbms.inc.php";
 require "../include/template2.inc.php";
 require "../include/auth.inc.php";
 require "../include/admin-utils.inc.php";
-$row['id'] = $_SESSION['admin']['username'];
-$main->setContent($row);
-$query_carr1 = "SELECT SUM(prodottifornitore.prezzo)as tot,taglia, prodottifornitore.id  FROM prodottifornitore,carrellofornitore WHERE prodottifornitore.id=carrellofornitore.prodotto AND carrellofornitore.ordinato=0";
+
+$query_carr1 = "SELECT SUM(prodottifornitore.prezzo)as tot,taglia, prodottifornitore.id  FROM prodottifornitore,carrellofornitore WHERE prodottifornitore.id=carrellofornitore.prodotto AND carrellofornitore.pagato=0";
 $db->query($query_carr1);
 if ($db->status == "ERROR") {
     Header('Location: error.php?id=1005');
@@ -31,7 +30,7 @@ if ($db->status == "ERROR") {
     $set_taglia = "UPDATE taglieprodotti SET  taglieprodotti.quantita = taglieprodotti.quantita +10 WHERE taglia=$taglia AND scarpa = $id ";
     $db->query($set_taglia);
     if ($db->status == "ERROR") {
-        Header('Location: ierror.php?id=1005');
+        Header('Location: error.php?id=1005');
     } else {
         $result = $db->getResult();
         if (!$result) {
@@ -39,12 +38,12 @@ if ($db->status == "ERROR") {
             $db->query($set_taglia);
         }
     }
-    $set_carr = "UPDATE carrellofornitore SET  ordinato = $app WHERE ordinato=0 ";
+    $set_carr = "UPDATE carrellofornitore SET  ordinato = $app,pagato =1 WHERE pagato=0 ";
     $db->query($set_carr);
     if ($db->status == "ERROR") {
         Header('Location: error.php?id=1005');
     } else {
-        Header('Location: admin.php');
+        Header('Location: admin.php?ord=1');
     }
 }
 adminInject($main, $body);

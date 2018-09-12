@@ -1,0 +1,57 @@
+<!-- Main -->
+<div id="main">
+
+  <!-- Post -->
+  <article class="post">
+
+    <header>
+      <div class="title">
+        <h2><a href="#">
+            <[titolo]>
+          </a></h2>
+      </div>
+    </header>
+    <[errore]>
+      <div style="display:flex;margin-left: 8em;">
+        <img style="width:500px; align-self: flex-start; margin:0 1em 0em 0em;" src="../<[immagine]>" alt="" />
+        <div style="display:flex; flex-direction:column; justify-content:center; margin-left: 8em;">
+          <form method="GET" action="addTaglia.php">
+            <input type="hidden" name="id" value="<[id]>" />
+            <ul class="actions">
+              <li><a href="./modifica-prodotto.php?id=<[id]>" class="button red">Modifica prodotto</a></li>
+            </ul>
+            <h1>
+              <[marca]>
+            </h1>
+            <h1>
+              <[modello]>
+            </h1>
+            <h3>Seleziona la taglia da aggiungere</h3>
+            <select name="size">
+              <option value="40">40</option>
+              <option value="41">41</option>
+              <option value="42">42</option>
+              <option value="43">43</option>
+              <option value="44">44</option>
+              <option value="45">45</option>
+              <option value="46">46</option>
+              <option value="47">47</option>
+              <option value="48">48</option>
+              <option value="49">49</option>
+            </select>
+            
+            <h3>Seleziona la quantità da aggiungere</h3>
+            <input type="text" name="quant" value="" />
+
+
+            <p style="margin-top: .8em; font-size: 20px;"><strong>Prezzo:</strong> &euro;<[prezzo]>
+            </p>
+            <button type="submit" class="button small addToCart">Aggiungi taglie in magazzino</button>
+          </form>
+          
+        </div>
+      </div>
+
+  </article>
+  </form>
+</div>

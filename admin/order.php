@@ -5,11 +5,11 @@ require "../include/auth.inc.php";
 require "../include/admin-utils.inc.php";
 $main = new Template("../dtml-admin/frame-public.html");
 $body = new Template("../dtml-admin/order.html");
-$row['id'] = $_SESSION['admin']['username'];
-$main->setContent($row);
+$row1['id'] = $_SESSION['admin']['username'];
+$main->setContent($row1);
 $query_carr1 = "SELECT DISTINCT prodottifornitore.*,taglia,immaginifornitore.immagine 
     FROM carrellofornitore,prodottifornitore,immaginifornitore 
-    WHERE prodottifornitore.id=carrellofornitore.prodotto  AND prodottifornitore.id = immaginifornitore.prodotto AND carrellofornitore.ordinato =0";
+    WHERE prodottifornitore.id=carrellofornitore.prodotto  AND prodottifornitore.id = immaginifornitore.prodotto AND carrellofornitore.pagato =0";
 $db->query($query_carr1);
 if ($db->status == "ERROR") {
     Header('Location: error.php?id=1005');

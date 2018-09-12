@@ -7,7 +7,7 @@ $main = new Template("../dtml-admin/frame-public.html");
 $body = new Template("../dtml-admin/index.html");
 $row['id'] = $_SESSION['admin']['username'];
 $main->setContent($row);
-$query_carr = "SELECT ordini.id AS id1,ordini.*, utenti.* FROM ordini,utenti WHERE ordini.utente=utenti.id";
+$query_carr = "SELECT ordini.id AS id1,ordini.*, utenti.* FROM ordini,utenti WHERE ordini.utente=utenti.id ORDER BY time DESC";
 $db->query($query_carr);
 if ($db->status == "ERROR") {
     Header('Location: index.php?error=1008');
@@ -32,7 +32,7 @@ if ($db->status == "ERROR") {
     }
 }
 $query_carr1 = "SELECT ordiniext.id AS id2,ordiniext.nome AS nome1,ordiniext.cognome AS cognome1,ordiniext.indirizzo AS indirizzo1,
-                    ordiniext.totale AS totale1,ordiniext.pagamento AS pagamento1,ordiniext.pagato AS pagato1  FROM ordiniext";
+                    ordiniext.totale AS totale1,ordiniext.pagamento AS pagamento1,ordiniext.pagato AS pagato1  FROM ordiniext ORDER BY time DESC";
 $db->query($query_carr1);
 if ($db->status == "ERROR") {
     Header('Location: index.php?error=1008');
@@ -54,6 +54,11 @@ if ($db->status == "ERROR") {
 }
 if (isset($_GET['carr'])) 
     $body->setContent("news", "Il carrello è stato svuotato");
+    
+if (isset($_GET['ord'])) 
+$body->setContent("news", "Ordine effettuato");
+if (isset($_GET['size'])) 
+$body->setContent("news", "Taglie aggiornate con successo");
 adminInject($main, $body);
 $main->close();
 ?>

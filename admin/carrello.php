@@ -22,7 +22,7 @@ if (isset($_GET['id'])) {
         Header('Location: error.php?id=1005');
     }
 }
-$query_carr = "SELECT prodottifornitore.*,taglia FROM carrellofornitore,prodottifornitore WHERE prodottifornitore.id=carrellofornitore.prodotto  AND carrellofornitore.ordinato =0";
+$query_carr = "SELECT prodottifornitore.*,taglia FROM carrellofornitore,prodottifornitore WHERE prodottifornitore.id=carrellofornitore.prodotto  AND carrellofornitore.pagato =0";
 $db->query($query_carr);
 if ($db->status == "ERROR") {
     Header('Location: error.php?id=1005');
@@ -45,7 +45,7 @@ if ($db->status == "ERROR") {
         }
         $body->setContent("totale", $totale * 10);
         $body->setContent("totale", $totale);            
-        $orderButton = new Template("dtml-admin/orderbutton.html");
+        $orderButton = new Template("../dtml-admin/orderbutton.html");
         $body->setContent("orderbutton", $orderButton->get());
     }
 }

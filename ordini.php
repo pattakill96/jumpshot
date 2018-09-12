@@ -22,7 +22,7 @@ if (isset($_SESSION['user'])) {
             $cognome = $row['cognome'];
             $indirizzo = $row['indirizzo'];
         }
-        $query_carr = "SELECT ordini.* FROM ordini WHERE ordini.utente=$utente";
+        $query_carr = "SELECT ordini.* FROM ordini WHERE ordini.utente=$utente ORDER BY time DESC ";
         $db->query($query_carr);
         if ($db->status == "ERROR") {
             Header('Location: error.php?id=1005');
@@ -49,7 +49,7 @@ if (isset($_SESSION['user'])) {
 }
 if (isset($_SESSION['ext'])) {
     $utente = $_SESSION['ext']['id'];
-    $query_carr = "SELECT ordiniext.* FROM ordiniext WHERE ordiniext.utente=$utente";
+    $query_carr = "SELECT ordiniext.* FROM ordiniext WHERE ordiniext.utente=$utente ORDER BY time DESC";
     $db->query($query_carr);
     if ($db->status == "ERROR") {
         Header('Location: error.php?id=1005');
