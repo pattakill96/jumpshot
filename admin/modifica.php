@@ -5,7 +5,15 @@
   require "../include/auth.inc.php";
   require "../include/admin-utils.inc.php";
 
- // per prima cosa verifico che il file sia stato effettivamente caricato
+  if (isset($_POST['descrizione'])){
+    $_POST['descrizione'] = utf8_decode(str_replace("'", "", $_POST['descrizione']));
+    $update_desc="UPDATE descrizioneprodotti SET testo = '{$_POST['descrizione']}' WHERE prodotto = '{$_POST['id']}' ";
+    $db->query($update_desc);
+    print($update_desc);
+    if($db->status == "ERROR") {
+    Header('Location: error.php?id=1005');}
+  }
+ 
 if (!isset($_FILES['image']) || !is_uploaded_file($_FILES['image']['tmp_name'])) {
     if(isset($_POST['marca']) && isset($_POST['modello']) && isset($_POST['prezzo'])){
         $id=$_POST['id'];
@@ -18,6 +26,8 @@ if (!isset($_FILES['image']) || !is_uploaded_file($_FILES['image']['tmp_name']))
       }
       Header('Location: dettaglioprodotto.php?id='.$id);
   }
+
+  
   
   //percorso della cartella dove mettere i file caricati dagli utenti
   $uploaddir = 'C:\xampp\htdocs\jumpshot\img\\';

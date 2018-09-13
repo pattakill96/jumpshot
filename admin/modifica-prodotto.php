@@ -10,9 +10,9 @@
   $row['id'] = $_SESSION['admin']['username'];
   $main->setContent($row);
 if(isset($_GET['id'])) {
-  $product_detail_query = "SELECT DISTINCT prodotti.*, immagini.immagine
-                          FROM prodotti, immagini
-                          WHERE prodotti.id = {$_GET['id']} AND immagini.prodotto = {$_GET['id']}  
+  $product_detail_query = "SELECT DISTINCT prodotti.*, immagini.immagine,descrizioneprodotti.testo
+                          FROM prodotti, immagini,descrizioneprodotti
+                          WHERE prodotti.id = {$_GET['id']} AND immagini.prodotto = {$_GET['id']}  AND descrizioneprodotti.prodotto = {$_GET['id']} 
                           ";
 
   $db->query($product_detail_query);
@@ -28,6 +28,8 @@ print_r($product_detail_query);  } else {
       $row['marca'] = utf8_encode($row['marca']);
       $row['modello'] = utf8_encode($row['modello']);
       $row['prezzo'] = utf8_decode($row['prezzo']);
+      $row['testo'] = $row['testo'];
+
       $body->setContent($row);
     }
   }
