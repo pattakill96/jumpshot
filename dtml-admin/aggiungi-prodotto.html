@@ -1,0 +1,51 @@
+<!-- Main -->
+<div id="main">
+<div class="inner">  <!-- Post -->
+  <article class="post">
+
+    <header>
+      <div class="title">
+        <h1>
+          Aggiungi un prodotto al tuo negozio
+          </a></h1>
+      </div>
+    </header>
+    <[errore]>
+     
+          <form method="POST" action="aggiungi.php" enctype="multipart/form-data">
+
+              <div class="row gtr-uniform">
+                  <div class="col-6 col-12-xsmall">
+                    <input type="text" name="marca" id="marca" placeholder="marca" />
+                  </div>
+                  <div class="col-6 col-12-xsmall">
+                    <input type="text" name="modello" id="modello" placeholder="modello" />
+                  </div>
+                  </div><div class="row gtr-uniform" style="margin-top:20px">
+                  <div class="col-4 col-12-xsmall">
+                      <input type="text" name="prezzo" id="prezzo" placeholder="prezzo" />
+                    </div>
+                    <div class="col-4 col-12-xsmall">
+                        <input type="file" name="image" id="image" class="inputfile" />
+                        <label for="image">Scegli un'immagine</label>
+                      </div>
+                      <div class="col-2 col-12-small">
+                          <input type="radio" id="Basket" name="payment" checked value="1">
+                          <label for="Basket">Basket</label>
+                        </div>
+                        <div class="col-2 col-12-small">
+                          <input type="radio" id="Sneaker" name="payment" value="2">
+                          <label for="Sneaker">Sneaker</label>
+                        </div>
+                </div>
+                   <hr>
+                    <h2>Inserisci la descrizione del prodotto</h2>
+                    <textarea class="id" name="descrizione" id="descrizione" >descrizione</textarea>
+                    <div style="margin-top: 20px;margin-left: 40%">
+                      <button type="submit" class="button small addToCart">Aggiungi prodotto</button></div>
+          </form>
+          
+      
+  </article></div>
+  
+</div>
