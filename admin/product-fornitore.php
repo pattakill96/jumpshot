@@ -9,8 +9,6 @@
   $body = new Template("../dtml-admin/product-fornitore.html");
   $row['id'] = $_SESSION['admin']['username'];
   $main->setContent($row);
-  $for=$_GET['f'];
-  $body->setContent("for",$for);
 if(isset($_GET['id'])) {
   $product_detail_query = "SELECT DISTINCT prodottifornitore.*, immaginifornitore.immagine
                           FROM prodottifornitore, immaginifornitore
@@ -27,6 +25,7 @@ print_r($product_detail_query);  } else {
     foreach($result as $row) {
       $row['id'] = $row['id'];
       $row['immagine'] = $row['immagine'];
+      $row['fornitore'] = $row['fornitore'];
       $row['marca'] = utf8_encode($row['marca']);
       $row['modello'] = utf8_encode($row['modello']);
       $row['prezzo'] = utf8_decode($row['prezzo']);

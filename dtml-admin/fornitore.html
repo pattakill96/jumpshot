@@ -1,12 +1,24 @@
 <div id="main">
     <div class="inner">
         <section class="tiles">
+                <article>
+                <span class="image">
+                    <img src="../img/plus.png" alt="" />
+                </span>
+                <a href="aggiungiprodotto.php">
+                    <div class="content">
+                        <h2>
+                            Aggiungi prodotto
+                        </h2>
+                    </div>
+                </a>
+            </article>
             <[foreach]>
                 <article>
                     <span class="image">
                         <img src="../<[immagine]>" alt="" />
                     </span>
-                    <a href="product-fornitore.php?id=<[id1]>&f=<[id3]>">
+                    <a href="product-fornitore.php?id=<[id1]>">
                         <div class="content">
                             <h2>
                                 <[marca]>
@@ -16,15 +28,4 @@
                     </a>
                 </article>
                 <[/foreach]>
-                <article>
-                    <span class="image">
-                        <img src="../img/plus.png" alt="" />
-                    </span>
-                    <a href="aggiungiprodotto.php">
-                        <div class="content">
-                            <h2>
-                                Aggiungi prodotto
-                            </h2>
-                        </div>
-                    </a>
-                </article> </section> </div> </div>
+                 </section> </div> </div>
