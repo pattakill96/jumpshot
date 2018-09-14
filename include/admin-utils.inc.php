@@ -2,6 +2,8 @@
 
   function adminInject($main, $body) {
      $logoutButton = new Template("../dtml-admin/button-logout.html");
+     $orderForm = new Template("../dtml-admin/form-orders.html");
+        $main->setContent("order", $orderForm->get());
     // $userButton = new Template("../themes/default/dtml/button-user.html");
     // $cartButton = new Template("../themes/default/dtml/button-cart.html");
     // $adminButton = new Template("../themes/default/dtml/button-admin.html");

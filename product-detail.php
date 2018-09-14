@@ -15,7 +15,7 @@ if (isset($_GET['id'])) {
     } else {
         $result = $db->getResult();
         if (!$result)
-            Header('Location: error.php?id=1005');
+            Header('Location: error.php?id=1006');
         foreach ($result as $row) {
             $row['id'] = $row['id'];
             $row['immagine'] = $row['immagine'];

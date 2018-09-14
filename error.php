@@ -24,8 +24,8 @@ if (isset($_GET['id'])) {
         $err .= "<br>Premere <a href=\"index.php\">qui</a> per tornare alla home.";
     }
     else if ($_GET['id'] == "1006") {
-        $err .= "Nessun dato presente nel database!";
-        $err .= "<br>Premere <a href=\"index.php\">qui</a> per tornare alla home.";
+        $err = "OPS! La scarpa che hai selezionato non ha più taglie disponibili";
+        $err .= "<br>Premere <a href=\"index.php\">qui</a> per tornare agli acquisti.";
     }
 }
 $body->setContent("errore", $err);

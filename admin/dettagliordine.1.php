@@ -7,13 +7,12 @@ $main = new Template("../dtml-admin/frame-public.html");
 $body = new Template("../dtml-admin/dettagli-ordine.1.html");
 $row['id'] = $_SESSION['admin']['username'];
 $main->setContent($row);
-if (isset($_GET['id']) && isset($_GET['t']) && isset($_GET['u'])) {
+if (isset($_GET['id']) && isset($_GET['t'])) {
     if ($_GET['t'] == 1) {
         $body = new Template("../dtml-admin/dettagli-ordine.11.html");
     }
     $ord = $_GET['id'];
     $body->setContent('ord', $ord);
-    if ($_GET['u'] == 0) {
         $order = $_GET['id'];
         $body->setContent("order", $order);
         $query_carr1 = "SELECT DISTINCT prodotti.*,taglia,immagini.immagine FROM carrelloext,prodotti,immagini WHERE prodotti.id=carrelloext.prodotto  AND prodotti.id = immagini.prodotto AND carrelloext.ordine = '{$_GET['id']}'";
@@ -56,7 +55,6 @@ if (isset($_GET['id']) && isset($_GET['t']) && isset($_GET['u'])) {
                 $body->setContent("ind", $ind);
                 $body->setContent("pay", $pay);
             }
-        }
     }
 }
 adminInject($main, $body);
