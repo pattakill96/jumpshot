@@ -27,6 +27,10 @@ if (isset($_GET['id'])) {
         $err = "OPS! La scarpa che hai selezionato non ha più taglie disponibili";
         $err .= "<br>Premere <a href=\"index.php\">qui</a> per tornare agli acquisti.";
     }
+    else if ($_GET['id'] == "1009") {
+        $err = "Errore login - Credenziali errate";
+        $err .= "<br>Premere <a href=\"index.php\">qui</a> per tornare alla home.";
+    }
 }
 $body->setContent("errore", $err);
 session_start();

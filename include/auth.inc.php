@@ -17,10 +17,15 @@ if (!isset($_SESSION['admin'])) {
                         $_SESSION['nome'] = $result[1];
                         $_SESSION['cognome'] = $result[2];
                     }
+                    else {
+                        Header('Location: error.php?id=1009');
+                        exit;
+                    }
                 }
-            }
-        } else {
-            Header("Location: error.php?id=1005");
+            }Header('Location: error.php?id=1009');
+        } 
+            else {
+            
             $_SESSION['admin'] = $result1[0];
         }
     }
