@@ -24,7 +24,8 @@ if (isset($_GET['id'])) {
             $row['modello'] = utf8_encode($row['modello']);
             $row['taglia'] = utf8_encode($row['taglia']);
             $row['app'] = $row['taglia'];
-            $row['prezzo'] = utf8_decode($row['prezzo']);
+            $app = $row['prezzo'] - ($row['prezzo']*$row['sconto']/100);
+            $row['prezzo'] = number_format($app, 2, ',', ' ');
             $body->setContent($row);
         }
     }

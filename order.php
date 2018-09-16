@@ -30,7 +30,8 @@ if (isset($_SESSION['user'])) {
             $row['marca'] = utf8_encode($row['marca']);
             $row['modello'] = $row['modello'];
             $row['id'] = $row['id'];
-            $row['prezzo'] = $row['prezzo'];
+            $app = $row['prezzo'] - ($row['prezzo']*$row['sconto']/100);
+            $row['prezzo'] = number_format($app, 2, ',', ' ');
             $row['taglia'] = utf8_encode($row['taglia']);
             $totale = number_format($totale + $row['prezzo'], 2, '.', '');
             $body->setContent($row);
@@ -57,7 +58,8 @@ if (isset($_SESSION['ext'])) {
             $row['marca'] = utf8_encode($row['marca']);
             $row['modello'] = $row['modello'];
             $row['id'] = $row['id'];
-            $row['prezzo'] = $row['prezzo'];
+            $app = $row['prezzo'] - ($row['prezzo']*$row['sconto']/100);
+            $row['prezzo'] = number_format($app, 2, ',', ' ');
             $row['taglia'] = $row['taglia'];
             $totale = number_format($totale + $row['prezzo'], 2, '.', '');
             $body1->setContent($row);

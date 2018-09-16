@@ -29,7 +29,8 @@ if (isset($_GET['id']) && isset($_GET['t']) && isset($_GET['user'])) {
                 $row['immagine'] = $row['immagine'];
                 $row['marca'] = utf8_encode($row['marca']);
                 $row['modello'] = $row['modello'];
-                $row['prezzo'] = $row['prezzo'];
+                $app = $row['prezzo'] - ($row['prezzo']*$row['sconto']/100);
+                $row['prezzo'] = number_format($app, 2, ',', ' ');
                 $row['taglia'] = utf8_encode($row['taglia']);
                 $totale = number_format($totale + $row['prezzo'], 2, '.', '');
                 $body->setContent($row);
