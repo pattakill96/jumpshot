@@ -114,6 +114,8 @@ if (isset($_GET['carr']))
     
 if (isset($_GET['ord'])) 
 $body->setContent("news", "Ordine effettuato");
+if (isset($_GET['drop'])) 
+$body->setContent("news", "Prodotto eliminato correttamente");
 if (isset($_GET['src'])) 
 $body->setContent("news", "L'ordine cercato non è presente nel nostro sistema");
 if (isset($_GET['size'])) 

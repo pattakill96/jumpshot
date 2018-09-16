@@ -15,12 +15,16 @@ if ($db->status == "ERROR") {
     if (!$result)
         Header('Location: error.php?id=1006');
     foreach ($result as $row) {
-        $row['tipo'] = "style1";
+        $row['tipo'] = "style3";
         if ($row['nome'] == "Basket")
             $row['tipo'] = "style2";
         $row['marca'] = utf8_encode($row['marca']);
         $row['modello'] = $row['modello'];
-        $row['prezzo'] = $row['prezzo'];
+        $row['sconto'] = $row['sconto'];
+        $app = $row['prezzo'] - ($row['prezzo']*$row['sconto']/100);
+        $row['prezzo'] = number_format($app, 2, ',', ' ');
+        if ($row['sconto'] > 0)
+            $row['tipo'] = "style1";
         $row['immagine'] = $row['immagine'];
         $row['id'] = $row['id'];
         $body->setContent($row);

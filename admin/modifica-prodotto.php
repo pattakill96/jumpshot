@@ -29,7 +29,7 @@ print_r($product_detail_query);  } else {
       $row['modello'] = utf8_encode($row['modello']);
       $row['prezzo'] = utf8_decode($row['prezzo']);
       $row['testo'] = $row['testo'];
-
+      $row['sconto'] = $row['sconto'];
       $body->setContent($row);
     }
   }

@@ -4,10 +4,9 @@ require "include/template2.inc.php";
 require "include/utils.inc.php";
 $main = new Template("html/frame-public.html");
 $body = new Template("html/index.html");
-$app = "Basket";
-$query_prod = "SELECT DISTINCT prodotti.*, immagini.immagine,tipologia.nome
-                 FROM prodotti, immagini,tipologia
-                WHERE prodotti.id = immagini.prodotto AND prodotti.tipologia=tipologia.id AND tipologia.nome = '{$app}'";
+$query_prod = "SELECT DISTINCT prodotti.*, immagini.immagine
+                 FROM prodotti, immagini
+                WHERE prodotti.id = immagini.prodotto AND prodotti.sconto > 0";
 $db->query($query_prod);
 if ($db->status == "ERROR") {
     Header('Location: error.php?id=1005');
@@ -16,7 +15,7 @@ if ($db->status == "ERROR") {
     if (!$result)
         Header('Location: error.php?id=1007');
     foreach ($result as $row) {
-            $row['tipo'] = "style2";
+            $row['tipo'] = "style1";
         $row['marca'] = utf8_encode($row['marca']);
         $row['modello'] = $row['modello'];
         $app = $row['prezzo'] - ($row['prezzo']*$row['sconto']/100);

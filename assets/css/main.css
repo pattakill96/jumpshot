@@ -158,8 +158,12 @@ input, select, textarea {
 			color: deepskyblue;
 		}
 
+		div.inner a#green:hover{
+			color: chartreuse;
+		}
+
 		div.inner a#red:hover{
-			color: crimson;
+			color: red;
 		}
 
 	strong, b {
@@ -2707,7 +2711,7 @@ input, select, textarea {
 			}
 
 			.tiles article.style3 > .image:before {
-				background-color: #7bd0c1;
+				background-color: chartreuse;
 			}
 
 			.tiles article.style4 > .image:before {

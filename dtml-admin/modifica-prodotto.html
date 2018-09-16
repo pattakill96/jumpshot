@@ -19,16 +19,21 @@
             <input type="hidden" name="id" value="<[id]>" />
 
               <div class="row gtr-uniform">
-                  <div class="col-3 col-12-xsmall">
+                  <div class="col-4 col-12-xsmall">
                     <input type="text" name="marca" id="marca" value="<[marca]>" />
                   </div>
-                  <div class="col-3 col-12-xsmall">
+                  <div class="col-4 col-12-xsmall">
                     <input type="text" name="modello" id="modello" value="<[modello]>" />
                   </div>
-                  <div class="col-3 col-12-xsmall">
+                  <div class="col-4 col-12-xsmall">
                       <input type="text" name="prezzo" id="prezzo" value="<[prezzo]>" />
                     </div>
-                    <div class="col-3 col-12-xsmall">
+                    <div class="col-4 col-12-xsmall">
+                      <input type="text" name="sconto" id="sconto" value="<[sconto]>&#37;" />
+                    </div>
+                    <div class="col-4 col-12-xsmall">
+                    </div>
+                    <div class="col-4 col-12-xsmall">
                         <input type="file" name="file" id="file" class="inputfile" />
                         <label for="file">Scegli un'immagine</label>
                       </div>
@@ -39,6 +44,9 @@
                     <div style="margin-top: 20px;margin-left: 40%">
                       <button type="submit" class="button small addToCart">Modifica prodotto</button></div>
           </form>
+          <div style="margin-top: 20px;margin-left: 39%">
+            <a href="./dropshoe.php?id=<[id]>" class="button red">Elimina prodotto</a>
+          </div>
           
       
   </article></div>

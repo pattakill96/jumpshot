@@ -17,7 +17,7 @@
 if (!isset($_FILES['image']) || !is_uploaded_file($_FILES['image']['tmp_name'])) {
     if(isset($_POST['marca']) && isset($_POST['modello']) && isset($_POST['prezzo'])){
         $id=$_POST['id'];
-    $update_prod="UPDATE prodotti SET marca = '{$_POST['marca']}', modello = '{$_POST['modello']}', prezzo = '{$_POST['prezzo']}' WHERE id = '{$_POST['id']}'";
+    $update_prod="UPDATE prodotti SET marca = '{$_POST['marca']}', modello = '{$_POST['modello']}', prezzo = '{$_POST['prezzo']}', sconto = '{$_POST['sconto']}' WHERE id = '{$_POST['id']}'";
       $db->query($update_prod);
     if($db->status == "ERROR") {
     Header('Location: error.php?id=1005');}
